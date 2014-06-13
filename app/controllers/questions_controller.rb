@@ -28,8 +28,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    Question.find(params[:id]) = Question.new(question_params)
-    @question.save
+    @question = Question.find(params[:id])
+    @question.update(question_params)
     redirect_to :questions
   end
 
