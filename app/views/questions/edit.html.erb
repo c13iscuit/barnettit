@@ -1,0 +1,13 @@
+<h1>EDITING A QUESTION</h1>
+
+<h3>Edit this question:</h3>
+<%= form_for @question do |f|%>
+
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br>
+
+  <%= f.label :description %>:<br>
+  <%= f.text_area :description %><br>
+
+  <%= f.submit %>
+<% end %>

@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Question.create({title: 'how to rails', description: 'not sure how to rails. tried everything but still cant rails. sigh.'})
+
+
+#{title: 'why is doge the absolute most best?', description: 'dogeing is my favorite but its hard to tell others about my dogeing because I have so much enthusiasm for our lord and savior doge. how to convert others?'}

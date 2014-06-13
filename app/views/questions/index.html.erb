@@ -1,0 +1,9 @@
+<h1>QUESTIONS</h1>
+
+<ul>
+<%@questions.each do |question|%>
+<li><%= link_to question.title, question %></li>
+<%end%>
+</ul>
+
+<%= link_to "Post a question", :new_question%>

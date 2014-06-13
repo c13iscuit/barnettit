@@ -1,0 +1,21 @@
+<h1>SPECIFIC QUESTION</h1>
+
+<p><%=  @question.title %></p>
+<p><%=  @question.description %></p>
+
+<%= link_to "Edit this question", :edit_question %>
+
+<h3>Answers:</h3>
+
+<%@answers.each do |answer|%>
+<p><%= answer.description %></p>
+<% end %>
+
+
+<h3>Submit an answer:</h3>
+<%= form_for [@question, @answer] do |f|%>
+
+  <%= f.text_area :description %><br>
+
+  <%= f.submit %>
+<% end %>
