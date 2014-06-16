@@ -6,6 +6,7 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'

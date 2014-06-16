@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer = Answer.new
-    @answers = Answer.where(question_id: params[:id]).order(created_at: :asc)
+    @answers = Answer.where(question_id: params[:id]).order(upvotes: :desc)
   end
 
   def new
@@ -30,6 +30,14 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
+    redirect_to :questions
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    @question.answers.destroy_all
+    flash[:notice] = "That question was deleted."
     redirect_to :questions
   end
 

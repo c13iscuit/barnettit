@@ -5,12 +5,16 @@
 <p><%=  @question.title %></p>
 <p><%=  @question.description %></p>
 
-<%= link_to "Edit this question", :edit_question %>
+<%= button_to "Edit", :edit_question, method: 'get' %>
+
+<%= button_to "Delete", :question, method: 'delete' %>
 
 <h3>Answers:</h3>
 
 <%@answers.each do |answer|%>
-<p><%= answer.description %></p>
+  <p><%= answer.description %></p>
+  <p>upvotes: <%= answer.upvotes%>
+  <%= button_to "upvote", "/questions/#{params[:id]}/answers/#{answer.id}", method: 'get' %></p>
 <% end %>
 
 
