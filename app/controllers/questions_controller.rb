@@ -17,12 +17,16 @@ class QuestionsController < ApplicationController
   def create
     @params = params_with_uid(question_params)
     @question = Question.new(@params)
-    if @question.save
-      redirect_to :questions
+    if current_user
+      if @question.save
+      else
+        flash[:notice] = "Title must contain at least 10 characters and Description must contain at least 25 characters"
+        render :new
+      end
     else
-      flash[:notice] = "Title must contain at least 10 characters and Description must contain at least 25 characters"
-      render :new
+      flash[:notice] = "You must log in to post!"
     end
+    redirect_to :new_question
   end
 
   def edit
