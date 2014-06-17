@@ -8,7 +8,7 @@
 </head>
 <body>
 <% if current_user %>
-  Welcome <%= current_user.username%>
+  Welcome <%= link_to current_user.username, user_path(session[:user_id]) %>
   <%= link_to "Sign Out", signout_path %>
 <% else %>
   <%= link_to "Sign in with facebook!", "/auth/facebook"%>

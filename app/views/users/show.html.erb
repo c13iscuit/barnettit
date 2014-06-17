@@ -1,0 +1,7 @@
+<h5><%= link_to "Questions", :questions %></h5>
+
+<h1>USER ACCOUNT PAGE</h1>
+
+<% @posts.each do |post| %>
+<p><%= link_to post.title, question_path(post.id) %> | <%= post.created_at %></p>
+<% end %>

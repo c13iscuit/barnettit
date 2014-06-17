@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :upvotes
   end
 
-  resources :accounts
+  resources :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.

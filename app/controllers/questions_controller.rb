@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer = Answer.new
-    @answers = Answer.where(question_id: params[:id]).includes(:upvote)
+    @answers = Answer.where(question_id: params[:id]).joins(:upvote)
     @upvote = Upvote.new
   end
 
