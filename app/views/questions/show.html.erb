@@ -17,7 +17,11 @@
 <%@answers.each do |answer|%>
   <p><%= answer.description %></p>
   <p>upvotes: <%= answer.upvote.count %>
-    <%= button_to "upvote", question_answer_upvotes_path(params[:id], answer.id), method: 'post' %>
+  <%= form_for [answer, Upvote.new] do |f| %>
+    <%= f.submit "Upvote" %>
+  <% end %>
+
+
   </p>
 <% end %>
 
