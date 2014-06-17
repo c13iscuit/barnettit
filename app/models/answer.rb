@@ -1,4 +1,6 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
-  validates :description, length: { minimum: 40}
+  belongs_to :user
+  has_one :upvote
+  validates :description, length: { minimum: 10}
 end

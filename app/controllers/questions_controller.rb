@@ -6,7 +6,8 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer = Answer.new
-    @answers = Answer.where(question_id: params[:id]).order(upvotes: :desc)
+    @answers = Answer.where(question_id: params[:id]).includes(:upvote)
+    @upvote = Upvote.new
   end
 
   def new
@@ -14,11 +15,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @params = params_with_uid(question_params)
+    @question = Question.new(@params)
     if @question.save
       redirect_to :questions
     else
-      flash[:notice] = "Title must contain at least 40 characters and Description must contain at least 150 characters"
+      flash[:notice] = "Title must contain at least 10 characters and Description must contain at least 25 characters"
       render :new
     end
   end

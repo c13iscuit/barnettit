@@ -2,26 +2,27 @@
 
 <h1>SPECIFIC QUESTION</h1>
 
-<p><%=  @question.title %></p>
-<p><%=  @question.description %></p>
+<p><%= @question.title %></p>
+<p><%= @question.description %></p>
+<p>by: <%= @question.user.username %> on: <%= @question.created_at.to_s[0..10]%></p>
 
-<%= button_to "Edit", :edit_question, method: 'get' %>
-
-<%= button_to "Delete", :question, method: 'delete' %>
-
-<h3>Answers:</h3>
-
-<%@answers.each do |answer|%>
-  <p><%= answer.description %></p>
-  <p>upvotes: <%= answer.upvotes%>
-  <%= button_to "upvote", "/questions/#{params[:id]}/answers/#{answer.id}", method: 'get' %></p>
+<% if session[:user_id] == @question.user_id %>
+  <div>
+    <%= button_to "Edit", :edit_question, method: 'get' %>
+    <%= button_to "Delete", :question, method: 'delete' %>
+  </div>
 <% end %>
 
+<h3>Answers:</h3>
+<%@answers.each do |answer|%>
+  <p><%= answer.description %></p>
+  <p>upvotes: <%= answer.upvote.count %>
+    <%= button_to "upvote", question_answer_upvotes_path(params[:id], answer.id), method: 'post' %>
+  </p>
+<% end %>
 
 <h3>Submit an answer:</h3>
 <%= form_for [@question, @answer] do |f|%>
-
   <%= f.text_area :description %><br>
-
   <%= f.submit %>
 <% end %>

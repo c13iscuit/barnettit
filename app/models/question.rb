@@ -4,8 +4,8 @@ class Question < ActiveRecord::Base
 
   validates :title, length: {
     maximum: 255,
-    minimum: 40}
+    minimum: 10}
   validates :description, length: {
     maximum: 2000,
-    minimum: 150}
+    minimum: 25}
 end

@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
-  # get '/upvote' => 'answer#patch', :as => :upvote
 
   resources :questions do
-    resources :answers
+    resources :answers do
+      resources :upvotes
+    end
   end
 
 
