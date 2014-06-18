@@ -6,8 +6,12 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
-gem 'imgur', '~> 0.2.0'
+# gem 'carrierwave'
+# gem 'rmagick'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
