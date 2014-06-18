@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all.order(created_at: :asc)
+    @questions = Question.all.joins(:upvote).order('count desc')
   end
 
   def show
@@ -19,14 +19,16 @@ class QuestionsController < ApplicationController
     @question = Question.new(@params)
     if current_user
       if @question.save
+        @upvote = Upvote.create({upvotable_id: @question.id, upvotable_type: 'Question', count: 0, user_id: session[:user_id]})
+        redirect_to :questions
       else
         flash[:notice] = "Title must contain at least 10 characters and Description must contain at least 25 characters"
         render :new
       end
     else
       flash[:notice] = "You must log in to post!"
+      redirect_to :new_question
     end
-    redirect_to :new_question
   end
 
   def edit

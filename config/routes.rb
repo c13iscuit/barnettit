@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :upvotes
   end
 
+  resources :questions do
+    resources :upvotes
+  end
+
   resources :users
 
 

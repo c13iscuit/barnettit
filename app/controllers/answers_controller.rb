@@ -4,8 +4,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     if current_user
       if @answer.save
-        @upvote = Upvote.new({answer_id: @answer.id, count: 0, user_id: session[:user_id]})
-        @upvote.save
+        @upvote = Upvote.create({upvotable_id: @answer.id, upvotable_type: 'Answer', count: 0, user_id: session[:user_id]})
         flash[:notice] = "Success!"
       else
         flash[:notice] = "Answer must contain at least 50 characters"

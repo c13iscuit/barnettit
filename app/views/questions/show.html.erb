@@ -1,6 +1,6 @@
-<h5><%= link_to "Questions", :questions %></h5>
+<h5><%= link_to "Back to The Front Page", :questions %></h5>
 
-<h1>SPECIFIC QUESTION</h1>
+<h1>SPECIFIC POST</h1>
 
 <p><%= @question.title %></p>
 <p><%= @question.description %></p>
@@ -13,7 +13,7 @@
   </div>
 <% end %>
 
-<h3>Answers:</h3>
+<h3>Comments:</h3>
 <%@answers.each do |answer|%>
   <p><%= answer.description %></p>
   <p>upvotes: <%= answer.upvote.count %>
@@ -25,8 +25,8 @@
   </p>
 <% end %>
 
-<h3>Submit an answer:</h3>
+<h3>Comment on this post:</h3>
 <%= form_for [@question, @answer] do |f|%>
   <%= f.text_area :description %><br>
-  <%= f.submit %>
+  <%= f.submit "Comment"%>
 <% end %>

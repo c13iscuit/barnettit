@@ -7,17 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-  Welcome <%= link_to current_user.username, user_path(session[:user_id]) %>
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to "Sign in with facebook!", "/auth/facebook"%>
-<% end %>
-  <% if flash.any? %>
-    <div>
-      <%= flash[:notice] %>
-    </div>
+
+<div>
+  <% if current_user %>
+    Welcome <%= link_to current_user.username, user_path(session[:user_id]) %>
+    <%= link_to "Sign Out", signout_path %>
+  <% else %>
+    <%= link_to "Sign in with facebook!", "/auth/facebook"%>
   <% end %>
+</div>
+
+<% if flash.any? %>
+  <div>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
 <%= yield %>
 

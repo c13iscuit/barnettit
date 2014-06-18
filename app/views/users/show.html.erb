@@ -1,7 +1,13 @@
-<h5><%= link_to "Questions", :questions %></h5>
+<h5><%= link_to "Back to The Front Page", :questions %></h5>
 
 <h1>USER ACCOUNT PAGE</h1>
 
+<div>
+  Sort by:
+  <%= button_to "Upvotes", :user, method: 'get', params: {sort: 'upvotes'} %>
+  <%= button_to "Date", :user, method: 'get', params: {sort: 'date'} %>
+</div>
+
 <% @posts.each do |post| %>
-<p><%= link_to post.title, question_path(post.id) %> | <%= post.created_at %></p>
+<p><%= link_to post.title, question_path(post.id) %> | <%= post.created_at.to_s[0..10] %> | upvotes <%= post.upvote.count %></p>
 <% end %>

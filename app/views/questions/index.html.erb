@@ -1,9 +1,13 @@
-<h1>QUESTIONS</h1>
+<h1>POSTS</h1>
 
 <ul>
 <%@questions.each do |question|%>
 <li><%= link_to question.title, question %></li>
-<%end%>
+<div>by: <%= question.user.username %> | on: <%= question.created_at.to_s[0..10] %> | upvotes: <%= question.upvote.count %>
+  <%= form_for [question, Upvote.new] do |f| %>
+    <%= f.submit "Upvote" %>
+  <% end %> </div> <br>
+<% end %>
 </ul>
 
-<%= button_to "Post a question", :new_question, method: :get %>
+<%= button_to "Make a post", :new_question, method: :get %>
