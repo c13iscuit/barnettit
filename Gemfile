@@ -6,6 +6,8 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+gem 'imgur', '~> 0.2.0'
+
 gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
