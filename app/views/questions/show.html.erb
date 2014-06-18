@@ -1,7 +1,7 @@
 <h5><%= link_to "Back to The Front Page", :questions %></h5>
 
 <h1>SPECIFIC POST</h1>
-
+<%= image_tag(@question.image_url.to_s)%>
 <p><%= @question.title %></p>
 <p><%= @question.description %></p>
 <p>by: <%= @question.user.username %> on: <%= @question.created_at.to_s[0..10]%></p>

@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
   has_one :upvote, :as => :upvotable
-  # mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader
 
   validates :title, length: {
     maximum: 255,

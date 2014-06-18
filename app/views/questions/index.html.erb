@@ -2,6 +2,7 @@
 
 
 <%@questions.each do |question|%>
+<%= image_tag question.image_url.to_s, size: '50x50' if question.image? %>
 <div><%= link_to question.title, question %></div>
 <div>by: <%= question.user.username %> | on: <%= question.created_at.to_s[0..10] %> | upvotes: <%= question.upvote.count %>
   <%= form_for [question, Upvote.new] do |f| %>

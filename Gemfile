@@ -6,8 +6,8 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
-# gem 'carrierwave'
-# gem 'rmagick'
+gem 'carrierwave'
+gem 'rmagick'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
