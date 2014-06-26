@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.joins(:upvote).order('count desc')
+    if params[:sort] == 'upvotes'
+      @posts = Post.all.joins(:upvote).order('count desc')
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
   end
 
   def show

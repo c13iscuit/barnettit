@@ -1,9 +1,15 @@
 <h1>POSTS</h1>
 
+<div>
+  Sort by:
+  <%= button_to "Upvotes", :posts, method: 'get', params: {sort: 'upvotes'} %>
+  <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %>
+</div>
+
 <% @posts.each do |post| %>
   <div>
     <%= image_tag post.image_url.to_s, size: '50x50' if post.image? %>
-    <%= image_tag "http://localhost:3000/uploads/post/image/82/Screenshot_2014-06-25_21.25.03.png", size: '50x50' if !post.image? %> |
+    <%= image_tag "http://localhost:3000/uploads/post/image/83/Screenshot_2014-06-25_21.25.03.png", size: '50x50' if !post.image? %> |
     <%= link_to post.title, post %>
   </div>
   <div>

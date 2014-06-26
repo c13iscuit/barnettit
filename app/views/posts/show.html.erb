@@ -1,24 +1,24 @@
-<h5><%= link_to "Back to The Front Page", :posts %></h5>
+<h5><%= link_to 'Back to The Front Page', :posts %></h5>
 
 <h1>SPECIFIC POST</h1>
-<%= image_tag(@post.image_url.to_s)%>
+<%= image_tag @post.image_url.to_s if @post.image? %>
 <p><%= @post.title %></p>
 <p><%= @post.description %></p>
-<p>by: <%= @post.user.username %> on: <%= @post.created_at.to_s[0..10]%></p>
+<p>by: <%= @post.user.username %> on: <%= @post.created_at.to_s[0..10] %></p>
 
 <% if session[:user_id] == @post.user_id %>
   <div>
-    <%= button_to "Edit", :edit_post, method: 'get' %>
-    <%= button_to "Delete", :post, method: 'delete' %>
+    <%= button_to 'Edit', :edit_post, method: 'get' %>
+    <%= button_to 'Delete', :post, method: 'delete' %>
   </div>
 <% end %>
 
 <h3>Comments:</h3>
-<%@comments.each do |comment|%>
+<% @comments.each do |comment| %>
   <p><%= comment.description %></p>
   <p>upvotes: <%= comment.upvote.count %>
   <%= form_for [comment, Upvote.new] do |f| %>
-    <%= f.submit "Upvote" %>
+    <%= f.submit 'Upvote' %>
   <% end %>
 
 
@@ -26,7 +26,7 @@
 <% end %>
 
 <h3>Comment on this post:</h3>
-<%= form_for [@post, @comment] do |f|%>
+<%= form_for [@post, @comment] do |f| %>
   <%= f.text_area :description %><br>
-  <%= f.submit "Comment"%>
+  <%= f.submit 'Comment' %>
 <% end %>
