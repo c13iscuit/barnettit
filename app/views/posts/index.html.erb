@@ -1,12 +1,20 @@
 <h1>POSTS</h1>
 
-<%@posts.each do |post|%>
-<%= image_tag post.image_url.to_s, size: '50x50' if post.image? %>
-<div><%= link_to post.title, post %></div>
-<div>by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | upvotes: <%= post.upvote.count %>
-  <%= form_for [post, Upvote.new] do |f| %>
-    <%= f.submit "Upvote" %>
-  <% end %> </div> <br>
+<% @posts.each do |post| %>
+  <div>
+    <%= image_tag post.image_url.to_s, size: '50x50' if post.image? %>
+    <%= image_tag "http://localhost:3000/uploads/post/image/82/Screenshot_2014-06-25_21.25.03.png", size: '50x50' if !post.image? %> |
+    <%= link_to post.title, post %>
+  </div>
+  <div>
+    by: <%= post.user.username %> |
+    on: <%= post.created_at.to_s[0..10] %> |
+    upvotes: <%= post.upvote.count %>
+    <%= form_for [post, Upvote.new] do |f| %>
+      <%= f.submit "Upvote" %>
+    <% end %>
+    <br>
+  </div>
 <% end %>
 
 <%= button_to "Make a post", :new_post, method: :get %>
