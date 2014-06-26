@@ -21,19 +21,19 @@ class UpvotesController < ApplicationController
   private
 
   def object_type
-    if params.has_key?(:answer_id)
-      @upvotable_object = Answer.find(params[:answer_id])
+    if params.has_key?(:comment_id)
+      @upvotable_object = Comment.find(params[:comment_id])
 
     else
-      @upvotable_object = Question.find(params[:question_id])
+      @upvotable_object = Post.find(params[:post_id])
     end
   end
 
   def object_path
-    if params.has_key?(:answer_id)
-      @path = question_path(@upvotable_object.question.id)
+    if params.has_key?(:comment_id)
+      @path = post_path(@upvotable_object.post.id)
     else
-      @path = :questions
+      @path = :posts
     end
   end
 

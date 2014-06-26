@@ -3,17 +3,17 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
 
-  resources :questions do
-    resources :answers do
+  resources :posts do
+    resources :comments do
       resources :upvotes
     end
   end
 
-  resources :answers do
+  resources :comments do
     resources :upvotes
   end
 
-  resources :questions do
+  resources :posts do
     resources :upvotes
   end
 
