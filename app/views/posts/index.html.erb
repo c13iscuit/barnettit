@@ -9,7 +9,7 @@
 <% @posts.each do |post| %>
   <div>
     <%= image_tag post.image_url.to_s, size: '50x50' if post.image? %>
-    <%= image_tag "http://localhost:3000/uploads/post/image/83/Screenshot_2014-06-25_21.25.03.png", size: '50x50' if !post.image? %> |
+    <%= image_tag "default_no_image_for_post.png", size: '50x50' if !post.image? %> |
     <%= link_to post.title, post %>
   </div>
   <div>
