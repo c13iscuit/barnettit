@@ -8,7 +8,6 @@ end
 
 gem 'carrierwave'
 gem 'rmagick'
-gem 'foundation'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
