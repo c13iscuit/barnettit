@@ -2,27 +2,28 @@
 <html>
 <head>
   <title>BARNETTIT</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="nav">
-  <div class="signed-in-status">
-  <% if current_user %>
-    <span id="welcome-username">
+<br>
+<div class="signed-in-status">
+  <div id="welcome-message">
     <%= image_tag "default_no_image_for_post.png", size: '40x40'%>
-    Welcome <%= link_to current_user.username, user_path(session[:user_id]) %>
-    </span>
-    <span id="signout-link">
-    <%= link_to "Sign Out", signout_path %>
-    </span>
-  <% else %>
-    <span id="sign-in-fb">
-    <%= image_tag "default_no_image_for_post.png", size: '40x40'%>
-    <%= link_to "Sign in with facebook!", "/auth/facebook"%>
-  <% end %>
-    </span>
+    Welcome to c13iscuit labs! </div>
+    <% if current_user %>
+      <span id="welcome-username">
+        <%= image_tag "user_default_thumb.png", size: '40x40'%>
+        <%= link_to current_user.username, user_path(session[:user_id]) %>
+        <a href="/signout" id="signout-link">(signout)</a>
+      </span>
+    <% else %>
+      <span id="sign-in-fb">
+        <%= link_to "Sign in with facebook!", "/auth/facebook"%>
+      </span>
+    <% end %>
   </div>
 </div>
 

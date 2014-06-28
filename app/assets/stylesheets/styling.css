@@ -1,8 +1,6 @@
 .nav {
-  background-color: #666666;
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-top: -20px;
+  margin-left: 125px;
+  margin-right: 125px;
   height: 75px;
   border: 0;
   border-radius: 25px;
@@ -10,18 +8,25 @@
 }
 
 .signed-in-status {
-  margin-top: 25px;
+  margin-left: 20px;
 }
 
 #welcome-username {
+  float: right;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+#welcome-message {
+  float: left;
   font-size: 25px;
   margin-left: 15px;
 }
 
 #signout-link {
-  font-size: 25px;
-  float: right;
-  margin-right: 15px;
+  font-size: x-small;
+  text-decoration: none;
+  margin-right: 25px;
 }
 
 #sign-in-fb {
@@ -29,16 +34,8 @@
   margin-left: 15px;
 }
 
-#login {
-  float: right;
-  margin-right: 10px;
-}
+#notices-container {
 
-#logo {
-  vertical-align: middle;
-  float: left;
-  margin-left: 5px;
-  margin-top: 2px;
 }
 
 br {
@@ -58,20 +55,8 @@ span {
   padding: 0;
 }
 
-
-#sort {
-  background-color: #999999;
-  margin-left: 95px;
-  margin-right: 500px;
-  margin-top: 15px;
-  margin-bottom: -40px;
-  padding: 5px;
-  border-radius: 25px;
-  height: 70px;
-}
-
 #sort-contents {
-  margin-top: 5px;
+  margin-top: 15px;
   margin-left: 20px;
 }
 
@@ -87,62 +72,40 @@ span {
   margin-top: -20px;
 }
 
-#create-post {
-  background-color: #999999;
-  margin-left: 500px;
-  margin-right: 95px;
-  margin-top: -70px;
-  margin-bottom: -40px;
-  padding: 5px;
-  border-radius: 25px;
-  height: 70px;
-}
-
 #create-post-contents {
+  float: left;
   margin-top: 5px;
   margin-left: 40px;
 }
 
 .post-buttons {
-  float: left;
-  margin-left: 100px;
+  float: right;
+  margin-right: 100px;
   margin-top: -20px;
 }
 
-#paging {
-  background-color: #999999;
-  margin-right: 175px;
-  margin-top: -60px;
-  margin-left: 95px;
-  border-radius: 25px;
-  height: 70px;
-  width: 350px;
-  padding: 10px;
-}
-
 #paging-contents {
-  margin-left: 10px;
-  margin-top: 25px;
+  text-align: center;
 }
 
 .posts-container {
-  background-color: #999999;
-  margin-left: 95px;
-  margin-right: 95px;
+  margin-left: 130px;
+  margin-right: 130px;
   margin-top: 0px;
   border-radius: 25px;
 }
 
 .thumbnail {
-  margin: 10px;
+  margin: 10px; margin-right: 15px;
   margin-left: 25px;
-  margin-right: 15px;
+
   box-shadow: 10px 10px 5px #888888;
   padding: 0;
   float: left;
 }
 
 .post-titles {
+  float: left;
   font-size: 20px;
   margin-top: 30px;
   padding: 0;
@@ -150,7 +113,6 @@ span {
 
 .post-titles > a {
   display: inline;
-  color: #000000;
   text-decoration: none;
   font-family: 'arial', 'sans-serif';
 }
@@ -161,8 +123,8 @@ span {
 }
 
 .upvote-button {
-  float: right;
-  margin-right: 200px;
-  margin-top: -40px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 10px;
 }
 

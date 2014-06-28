@@ -1,26 +1,18 @@
-<div id="sort">
+<div class="posts-container">
   <div id="sort-contents">
-  <p>Sort by:</p>
+  <br>
+    <p>Sort by:</p>
     <div id="first-sort-button">
       <%= button_to "Upvotes", :posts, method: 'get', params: {sort: 'upvotes'} %>
     </div>
     <div class="sort-buttons">
       <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %>
     </div>
-  </div>
-</div>
-
-<div id="create-post">
-  <div id="create-post-contents">
-  <p>Create a post:</p>
     <div class="post-buttons">
-      <%= button_to "Make a post", :new_post, method: :get %>
+      <%= button_to "Create a post", :new_post, method: 'get'%>
     </div>
   </div>
-</div>
-
-<div class="posts-container">
-  <br>
+  <hr>
   <% @posts.each do |post| %>
     <div class="thumbnail">
       <%= image_tag post.image_url.to_s, size: '50x50' if post.image? %>
@@ -40,10 +32,12 @@
       <% end %>
     </div>
     <br>
+    <br>
+    <br>
+    <br>
     <hr>
   <% end %>
 </div>
+<br>
+<div id="paging-contents">--<%= paginate @posts %>--</div>
 
-<div id="paging">
-    <span id="paging-contents"><%= paginate @posts %></span>
-</div>
