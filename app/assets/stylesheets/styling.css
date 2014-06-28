@@ -1,0 +1,168 @@
+.nav {
+  background-color: #666666;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: -20px;
+  height: 75px;
+  border: 0;
+  border-radius: 25px;
+  padding: 0;
+}
+
+.signed-in-status {
+  margin-top: 25px;
+}
+
+#welcome-username {
+  font-size: 25px;
+  margin-left: 15px;
+}
+
+#signout-link {
+  font-size: 25px;
+  float: right;
+  margin-right: 15px;
+}
+
+#sign-in-fb {
+  font-size: 25px;
+  margin-left: 15px;
+}
+
+#login {
+  float: right;
+  margin-right: 10px;
+}
+
+#logo {
+  vertical-align: middle;
+  float: left;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+br {
+   display: block;
+   margin: 5px 0;
+}
+
+p {
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  color: #A1A1A1;
+  margin: 0;
+  padding: 0;
+}
+
+
+#sort {
+  background-color: #999999;
+  margin-left: 95px;
+  margin-right: 500px;
+  margin-top: 15px;
+  margin-bottom: -40px;
+  padding: 5px;
+  border-radius: 25px;
+  height: 70px;
+}
+
+#sort-contents {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#first-sort-button {
+  float: left;
+  margin-left: 60px;
+  margin-top: -20px;
+}
+
+.sort-buttons {
+  float: left;
+  margin-left: 10px;
+  margin-top: -20px;
+}
+
+#create-post {
+  background-color: #999999;
+  margin-left: 500px;
+  margin-right: 95px;
+  margin-top: -70px;
+  margin-bottom: -40px;
+  padding: 5px;
+  border-radius: 25px;
+  height: 70px;
+}
+
+#create-post-contents {
+  margin-top: 5px;
+  margin-left: 40px;
+}
+
+.post-buttons {
+  float: left;
+  margin-left: 100px;
+  margin-top: -20px;
+}
+
+#paging {
+  background-color: #999999;
+  margin-right: 175px;
+  margin-top: -60px;
+  margin-left: 95px;
+  border-radius: 25px;
+  height: 70px;
+  width: 350px;
+  padding: 10px;
+}
+
+#paging-contents {
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
+.posts-container {
+  background-color: #999999;
+  margin-left: 95px;
+  margin-right: 95px;
+  margin-top: 0px;
+  border-radius: 25px;
+}
+
+.thumbnail {
+  margin: 10px;
+  margin-left: 25px;
+  margin-right: 15px;
+  box-shadow: 10px 10px 5px #888888;
+  padding: 0;
+  float: left;
+}
+
+.post-titles {
+  font-size: 20px;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.post-titles > a {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  font-family: 'arial', 'sans-serif';
+}
+
+.tiny {
+  font-family: 'arial', 'sans-serif';
+  font-size: x-small;
+}
+
+.upvote-button {
+  float: right;
+  margin-right: 200px;
+  margin-top: -40px;
+}
+

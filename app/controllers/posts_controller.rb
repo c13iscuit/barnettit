@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   def index
     if params[:sort] == 'upvotes'
-      @posts = Post.all.joins(:upvote).order('count desc')
+      @posts = Post.all.joins(:upvote).order('count desc').page(params[:page]).per(6)
     else
-      @posts = Post.all.order(created_at: :desc)
+      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(6)
     end
   end
 

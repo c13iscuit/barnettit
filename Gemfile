@@ -6,6 +6,8 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+gem 'kaminari'
+
 gem 'carrierwave'
 gem 'rmagick'
 

@@ -7,21 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div>
+<div class="nav">
+  <div class="signed-in-status">
   <% if current_user %>
+    <span id="welcome-username">
+    <%= image_tag "default_no_image_for_post.png", size: '40x40'%>
     Welcome <%= link_to current_user.username, user_path(session[:user_id]) %>
+    </span>
+    <span id="signout-link">
     <%= link_to "Sign Out", signout_path %>
+    </span>
   <% else %>
+    <span id="sign-in-fb">
+    <%= image_tag "default_no_image_for_post.png", size: '40x40'%>
     <%= link_to "Sign in with facebook!", "/auth/facebook"%>
   <% end %>
+    </span>
+  </div>
 </div>
 
-<% if flash.any? %>
-  <div>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<div id="notices container">
+  <% if flash.any? %>
+    <div id="notice-text">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</div>
 
 <%= yield %>
 
