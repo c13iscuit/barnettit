@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     capybara (2.3.0)
@@ -56,6 +57,11 @@ GEM
       dotenv (= 0.11.1)
     erubis (2.7.0)
     execjs (2.2.0)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     hashie (2.1.1)
@@ -72,6 +78,8 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.2)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -190,9 +198,11 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   dotenv-rails
+  factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  launchy
   omniauth
   omniauth-facebook
   pg
