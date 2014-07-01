@@ -7,29 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="nav">
+<div class = "nav">
 <br>
-<div class="signed-in-status">
-  <div id="welcome-message">
-    <%= image_tag "default_no_image_for_post.png", size: '40x40'%>
-    Welcome to c13iscuit labs! </div>
+<div class = "signed-in-status">
+  <div id = "logo">
+    <%= image_tag "default_no_image_for_post.png", size: '40x40'%> </div>
+    <span id = "welcome-message">Welcome to c13iscuit labs!</span>
     <% if current_user %>
-      <span id="welcome-username">
-        <%= image_tag "user_default_thumb.png", size: '40x40'%>
-        <%= link_to current_user.username, user_path(session[:user_id]) %>
-        <a href="/signout" id="signout-link">(signout)</a>
-      </span>
+      <div id = "welcome-username">
+        <span id = "username"><%= link_to current_user.username, user_path(session[:user_id]) %></span>
+        <p><a href = "/signout" id="signout-link">(signout)</a></p>
+        <div id = "user-portrait">
+          <%= image_tag "user_default_thumb.png", size: '40x40'%>
+        </div>
+      </div>
     <% else %>
-      <span id="sign-in-fb">
+      <span id = "sign-in-fb">
         <%= link_to "Sign in with facebook!", "/auth/facebook"%>
       </span>
     <% end %>
   </div>
 </div>
+<hr>
 
-<div id="notices container">
+<div id = "notices-container">
   <% if flash.any? %>
-    <div id="notice-text">
+    <div id = "notice-text">
       <%= flash[:notice] %>
     </div>
   <% end %>

@@ -15,7 +15,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if !current_user
+      flash[:notice] = "You must be logged in to post!"
+      redirect_to :posts
+    else
+      @post = Post.new
+    end
   end
 
   def create

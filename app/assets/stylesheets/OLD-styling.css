@@ -1,6 +1,6 @@
 .nav {
-  margin-left: 125px;
-  margin-right: 125px;
+  margin-left: 95px;
+  margin-right: 95px;
   height: 75px;
   border: 0;
   border-radius: 25px;
@@ -17,25 +17,39 @@
   margin-left: 15px;
 }
 
+#user-portrait {
+  margin-right: 135px;
+}
+
+#username {
+  float: right;
+  margin-right: 20px;
+}
+
+#logo {
+  float: left;
+}
+
 #welcome-message {
   float: left;
-  font-size: 25px;
+  font-size: 35px;
   margin-left: 15px;
 }
 
 #signout-link {
+  float: right;
   font-size: x-small;
   text-decoration: none;
-  margin-right: 25px;
+  margin-right: 90px;
 }
 
 #sign-in-fb {
-  font-size: 25px;
+  font-size: 15px;
   margin-left: 15px;
 }
 
 #notices-container {
-
+  text-align: center;
 }
 
 br {
@@ -56,7 +70,6 @@ span {
 }
 
 #sort-contents {
-  margin-top: 15px;
   margin-left: 20px;
 }
 
@@ -80,7 +93,7 @@ span {
 
 .post-buttons {
   float: right;
-  margin-right: 100px;
+  margin-right: 10px;
   margin-top: -20px;
 }
 
