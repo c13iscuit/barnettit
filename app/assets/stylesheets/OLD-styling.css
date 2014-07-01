@@ -5,6 +5,7 @@
   border: 0;
   border-radius: 25px;
   padding: 0;
+  background-image: url("default_no_image_for_post.png");
 }
 
 .signed-in-status {
@@ -28,6 +29,7 @@
 
 #logo {
   float: left;
+  margin-top: -10px;
 }
 
 #welcome-message {
@@ -104,12 +106,13 @@ span {
 .posts-container {
   margin-left: 130px;
   margin-right: 130px;
-  margin-top: 0px;
+  margin-top: -15px;
   border-radius: 25px;
 }
 
 .thumbnail {
-  margin: 10px; margin-right: 15px;
+  margin: 10px;
+  margin-right: 15px;
   margin-left: 25px;
 
   box-shadow: 10px 10px 5px #888888;
