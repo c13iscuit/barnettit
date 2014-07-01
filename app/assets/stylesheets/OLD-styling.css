@@ -1,11 +1,10 @@
 .nav {
-  margin-left: 95px;
-  margin-right: 95px;
   height: 75px;
   border: 0;
-  border-radius: 25px;
   padding: 0;
-  background-image: url("default_no_image_for_post.png");
+  background-image: url("banner.jpg");
+  background-size: 950px 90px;
+  background-repeat: no-repeat;
 }
 
 .signed-in-status {
@@ -15,21 +14,22 @@
 #welcome-username {
   float: right;
   font-size: 20px;
-  margin-left: 15px;
+  margin-left: 105px;
 }
 
 #user-portrait {
-  margin-right: 135px;
+  margin-right: 155px;
 }
 
 #username {
   float: right;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 #logo {
   float: left;
   margin-top: -10px;
+  margin-left: 50px;
 }
 
 #welcome-message {
@@ -42,7 +42,7 @@
   float: right;
   font-size: x-small;
   text-decoration: none;
-  margin-right: 90px;
+  margin-right: 110px;
 }
 
 #sign-in-fb {
