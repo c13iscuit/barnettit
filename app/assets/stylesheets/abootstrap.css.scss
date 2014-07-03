@@ -1,10 +1,30 @@
 @import 'bootstrap';
 
+#user-portrait {
+  marging-right: 10px;
+}
+
 #username {
-  font-size: 20px;
-  margin-top: -10px;
+  font-size: 18px;
+  margin-top: -11px;
+  margin-bottom: -10px;
 }
 
 #signout {
-  font-size: 10px;
+  font-size: 12px;
+  margin-left: 65px;
+  margin-bottom: -10px;
+}
+
+#fb {
+  margin-top: -14px;
+}
+
+#twitter {
+  margin-top: -14px;
+}
+
+.post-title {
+  font-size: 20px;
+  float: left;
 }

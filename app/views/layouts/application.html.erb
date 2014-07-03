@@ -20,29 +20,24 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create a post!<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="/posts/new">text</a></li>
+            <li><a href="/posts/new">image</a></li>
+            <li><a href="/posts/new">link</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= image_tag "user_default_thumb.png", size: '50x50'%></li>
+          <li id="user-portrait"><%= image_tag "user_default_thumb.png", size: '50x50'%></li>
           <li id="username"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
-          <li id = "signout"><p><a href = "/signout" id="signout-link">(signout)</a></p></li>
+          <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
         <% else %>
           <li>Sign in with:</li>
-          <li><a href = "/auth/facebook"><img src="http://www.wallstreet.org/wp-content/uploads/2013/10/facebook.png" width="30"></a></li>
-          <li><a href = "/auth/twitter"><img src="http://jonbennallick.co.uk/wp-content/uploads/2012/11/Twitter-Logo-Icon-by-Jon-Bennallick-02.png" width="30"></a></li>
+          <li id="fb"><a href = "/auth/facebook"><img src="http://www.wallstreet.org/wp-content/uploads/2013/10/facebook.png" width="30"></a></li>
+          <li id = "twitter"><a href = "/auth/twitter"><img src="http://jonbennallick.co.uk/wp-content/uploads/2012/11/Twitter-Logo-Icon-by-Jon-Bennallick-02.png" width="30"></a></li>
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->

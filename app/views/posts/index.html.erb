@@ -1,41 +1,25 @@
-<div class="posts-container">
-  <div id="sort-contents">
-  <br>
-    <p>Sort by:</p>
-    <div id="first-sort-button">
+<div class="container">
+  <ul class="nav navbar-nav">
+    <li>
       <%= button_to "Upvotes", :posts, method: 'get', params: {sort: 'upvotes'} %>
-    </div>
-    <div class="sort-buttons">
-      <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %>
-    </div>
-    <div class="post-buttons">
-      <%= button_to "Create a post", :new_post, method: 'get'%>
-    </div>
-  </div>
-  <hr>
+    </li>
+    <li>
+      <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %></li>
+  </ul>
+  <br>
+  <br>
+  <br>
   <% @posts.each do |post| %>
-    <div class="thumbnail">
-      <%= image_tag post.image_url, size: '50x50' if post.image? %>
-      <%= image_tag "default_no_image_for_post.png", size: '50x50' if !post.image? %>
-    </div>
-    <div class="post-titles">
-      <p> | <%= link_to post.title, post %></p>
-      <p class="tiny">
-        by: <%= post.user.username %> |
-        on: <%= post.created_at.to_s[0..10] %> |
-        upvotes: <%= post.upvote.count %>
-      </p>
-    </div>
-    <div class="upvote-button">
-      <%= form_for [post, Upvote.new] do |f| %>
+    <div class="row-fluid">
+        <%= image_tag post.image_url, size: '50x50' if post.image? %>
+        <%= image_tag "default_no_image_for_post.png", size: '90x90' if !post.image? %>
+        <p class="post-title"><a href="posts/<%=post.id%>">| <%= post.title %></a></p>
+        <p>by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | upvotes: <%= post.upvote.count %></p>
+        <%= form_for [post, Upvote.new] do |f| %>
         <%= f.submit "Upvote" %>
-      <% end %>
+        <% end %>
     </div>
     <br>
-    <br>
-    <br>
-    <br>
-    <hr>
   <% end %>
 </div>
 <br>
