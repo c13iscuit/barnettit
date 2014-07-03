@@ -1,7 +1,6 @@
 <h5><%= link_to 'Back to The Front Page', :posts %></h5>
 
-<h1>SPECIFIC POST</h1>
-<%= image_tag @post.image_url.to_s if @post.image? %>
+<%= image_tag @post.image_url, size: '300x300' if @post.image? %>
 <p><%= @post.title %></p>
 <p><%= @post.description %></p>
 <p>by: <%= @post.user.username %> on: <%= @post.created_at.to_s[0..10] %></p>

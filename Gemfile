@@ -8,6 +8,8 @@ group :test, :development do
   gem 'launchy'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'kaminari'
 
 gem 'carrierwave'

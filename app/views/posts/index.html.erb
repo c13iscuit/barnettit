@@ -15,7 +15,7 @@
   <hr>
   <% @posts.each do |post| %>
     <div class="thumbnail">
-      <%= image_tag post.image_url.to_s, size: '50x50' if post.image? %>
+      <%= image_tag post.image_url, size: '50x50' if post.image? %>
       <%= image_tag "default_no_image_for_post.png", size: '50x50' if !post.image? %>
     </div>
     <div class="post-titles">

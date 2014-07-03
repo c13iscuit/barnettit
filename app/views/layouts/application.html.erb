@@ -13,7 +13,7 @@
   <div id = "logo">
     <%= image_tag "default_no_image_for_post.png", size: '60x60'%>
   </div>
-    <span id = "welcome-message">Welcome to c13iscuit labs!</span>
+    <span id = "welcome-message">Welcome to barnettit!</span>
     <% if current_user %>
       <div id = "welcome-username">
         <span id = "username"><%= link_to current_user.username, user_path(session[:user_id]) %></span>
