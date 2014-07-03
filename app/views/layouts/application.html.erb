@@ -2,34 +2,52 @@
 <html>
 <head>
   <title>BARNETTIT</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class = "nav">
-<br>
-<div class = "signed-in-status">
-  <div id = "logo">
-    <%= image_tag "default_no_image_for_post.png", size: '60x60'%>
-  </div>
-    <span id = "welcome-message">Welcome to barnettit!</span>
-    <% if current_user %>
-      <div id = "welcome-username">
-        <span id = "username"><%= link_to current_user.username, user_path(session[:user_id]) %></span>
-        <p><a href = "/signout" id="signout-link">(signout)</a></p>
-        <div id = "user-portrait">
-          <%= image_tag "user_default_thumb.png", size: '40x40'%>
-        </div>
-      </div>
-    <% else %>
-      <span id = "sign-in-fb">
-        <%= link_to "Sign in with facebook!", "/auth/facebook"%>
-      </span>
-    <% end %>
-  </div>
+<div class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">barnettit</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= image_tag "user_default_thumb.png", size: '50x50'%></li>
+          <li id="username"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
+          <li id = "signout"><p><a href = "/signout" id="signout-link">(signout)</a></p></li>
+        <% else %>
+          <li>Sign in with:</li>
+          <li><a href = "/auth/facebook"><img src="http://www.wallstreet.org/wp-content/uploads/2013/10/facebook.png" width="30"></a></li>
+          <li><a href = "/auth/twitter"><img src="http://jonbennallick.co.uk/wp-content/uploads/2012/11/Twitter-Logo-Icon-by-Jon-Bennallick-02.png" width="30"></a></li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
 </div>
-<hr>
 
 <div id = "notices-container">
   <% if flash.any? %>

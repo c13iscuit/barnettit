@@ -12,6 +12,8 @@ gem 'rails_12factor', group: :production
 
 gem 'kaminari'
 
+gem 'bootstrap-sass'
+
 gem 'carrierwave'
 gem 'rmagick'
 
