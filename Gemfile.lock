@@ -58,6 +58,7 @@ GEM
     dotenv-rails (0.11.1)
       dotenv (= 0.11.1)
     erubis (2.7.0)
+    excon (0.37.0)
     execjs (2.2.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -67,6 +68,15 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     hashie (2.1.1)
+    heroku (3.9.0)
+      heroku-api (~> 0.3.17)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.18)
+      excon (~> 0.27)
+      multi_json (~> 1.8)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.1.0)
@@ -92,6 +102,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    netrc (0.7.7)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     oauth2 (0.9.4)
@@ -144,6 +155,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rmagick (2.13.2)
     rspec-core (3.0.1)
       rspec-support (~> 3.0.0)
@@ -161,6 +174,7 @@ GEM
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.0)
+    rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -207,6 +221,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
   factory_girl_rails
+  heroku
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
