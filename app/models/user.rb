@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :upvotes
-  has_many :upvotepairs
+  has_many :upvote_pairs
   has_one :account
 end

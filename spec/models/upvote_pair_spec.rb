@@ -11,7 +11,7 @@ describe UpvotePair do
     it "associates upvote_pair with an upvote" do
       user = FactoryGirl.create(:user)
       upvote = FactoryGirl.create(:post_upvote, user_id: user.id)
-      expect(upvote.upvote_pairs).to be_valid
+      (upvote.upvote_pairs.count).should eql(1)
     end
 
   end

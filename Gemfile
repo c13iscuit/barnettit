@@ -14,6 +14,7 @@ gem 'kaminari'
 
 gem 'bootstrap-sass'
 
+gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
 
