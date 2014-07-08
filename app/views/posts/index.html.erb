@@ -4,20 +4,25 @@
       <%= button_to "Upvotes", :posts, method: 'get', params: {sort: 'upvotes'} %>
     </li>
     <li>
-      <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %></li>
+      <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %>
+    </li>
   </ul>
   <br>
   <br>
   <br>
   <% @posts.each do |post| %>
-    <div class="row-fluid">
+    <div class="row">
+      <span class="post-image">
         <%= image_tag post.image_url, size: '50x50' if post.image? %>
         <%= image_tag "default_no_image_for_post.png", size: '90x90' if !post.image? %>
-        <p class="post-title"><a href="posts/<%=post.id%>">| <%= post.title %></a></p>
-        <p>by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | upvotes: <%= post.upvote.count %></p>
-        <%= form_for [post, Upvote.new] do |f| %>
-        <%= f.submit "Upvote" %>
-        <% end %>
+      </span>
+      <p class="post-title"><a href="posts/<%=post.id%>"> |> <%= post.title %></a></p>
+      <br>
+      <br>
+      <p class="post-info">by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | upvotes: <%= post.upvote.count %></p>
+      <%= form_for [post, Upvote.new] do |f| %>
+      <%= f.submit "Upvote" %>
+      <% end %>
     </div>
     <br>
   <% end %>
