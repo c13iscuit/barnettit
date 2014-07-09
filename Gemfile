@@ -22,6 +22,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'heroku'
 
