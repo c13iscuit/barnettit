@@ -7,16 +7,16 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments do
-      resources :upvotes
+      resources :votes
     end
   end
 
   resources :comments do
-    resources :upvotes
+    resources :votes
   end
 
   resources :posts do
-    resources :upvotes
+    resources :votes
   end
 
   resources :users, only: [:show]

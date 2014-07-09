@@ -7,27 +7,37 @@
       <%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %>
     </li>
   </ul>
+
   <br>
   <br>
   <br>
+
   <% @posts.each do |post| %>
     <div class="row">
       <span class="post-image">
         <%= image_tag post.image_url, size: '50x50' if post.image? %>
         <%= image_tag "default_no_image_for_post.png", size: '90x90' if !post.image? %>
       </span>
-      <p class="post-title"><a href="posts/<%=post.id%>"> |> <%= post.title %></a></p>
+
+      <p class="post-title">
+        <a href="posts/<%=post.id%>"> |>
+          <%= post.title %>
+        </a>
+      </p>
+
       <br>
       <br>
-      <p class="post-info">by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | votes: <%= post.upvote.count %></p>
-      <%= form_for [post, Upvote.new] do |f| %>
-        <%= hidden_field_tag :vote, 1 %>
-        <%= f.submit "Upvote" %>
-      <% end %>
-      <%= form_for [post, Upvote.new] do |f| %>
-        <%= hidden_field_tag :vote, -1 %>
-        <%= f.submit "Downvote" %>
-      <% end %>
+
+      <p class="post-info">
+        by: <%= post.user.username %> |
+        on: <%= time_ago_in_words(post.created_at) %> |
+        votes: <%= post.score %>
+      </p>
+
+      <%= button_to "Upvote", post_votes_path(post), params: { value: 1, votable_id: post.id, votable_type: post.class } %>
+
+      <%= button_to "Downvote", post_votes_path(post), params: { value: -1, votable_id: post.id, votable_type: post.class } %>
+
     </div>
     <br>
   <% end %>

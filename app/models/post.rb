@@ -7,4 +7,8 @@ class Post < ActiveRecord::Base
   validates_presence_of :description
 
   mount_uploader :image, ImageUploader
+
+  def score
+    Vote.where(votable_id: self.id, votable_type: "Post").sum(:value)
+  end
 end
