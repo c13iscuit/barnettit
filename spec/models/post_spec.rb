@@ -10,4 +10,12 @@ describe Post do
 
   it { should have_valid(:description).when("Spacecats rule", "RTFM") }
   it { should_not have_valid(:description).when(nil, "") }
+
+  describe "#score" do
+    it "should total the votes" do
+      vote = FactoryGirl.create(:post_vote)
+      expect(vote.post.score).to eq(1)
+    end
+  end
 end
+
