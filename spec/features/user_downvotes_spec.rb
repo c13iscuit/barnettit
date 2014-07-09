@@ -17,7 +17,7 @@ require 'rails_helper'
     click_on "Downvote"
 
     expect(page).to have_content "votes: 1"
-
+    expect post.upvote.count.to eq(1)
   end
 
   scenario '-user can downvote a comment' do
@@ -26,13 +26,13 @@ require 'rails_helper'
     comment = FactoryGirl.create(:comment)
 
     #sign in the user!
-
+    binding.pry
     visit "posts/#{comment.post.id}"
 
     click_on "Downvote"
 
     expect(page).to have_content "votes: -1"
-
+    expect comment.upvote.count.to eq(-1)
   end
 
 end

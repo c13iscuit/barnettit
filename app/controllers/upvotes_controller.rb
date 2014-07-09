@@ -4,7 +4,6 @@ class UpvotesController < ApplicationController
     object_type
     if current_user
       @upvote_pair = UpvotePair.find_by(upvote_id: @upvotable_object.upvote.id, user_id: current_user.id)
-      binding.pry
       if @upvote_pair.nil?
         @upvotable_object.upvote.count += params[:vote].to_i
         @upvotable_object.upvote.save
@@ -16,6 +15,9 @@ class UpvotesController < ApplicationController
         else
           @upvote_pair.vote = params[:vote].to_i
           @upvote_pair.save
+          @upvotable_object.upvote.count += params[:vote].to_i
+          @upvotable_object.upvote.count += params[:vote].to_i
+          @upvotable_object.upvote.save
           flash[:notice] = "Vote changed!"
         end
       end

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments do
-    resources :upvotes, only: [:new]
+    resources :upvotes
   end
 
   resources :posts do

@@ -16,11 +16,14 @@
 <% @comments.each do |comment| %>
   <p><%= comment.description %></p>
   <p>upvotes: <%= comment.upvote.count %>
-  <%= form_for [comment, Upvote.new] do |f| %>
-    <%= f.submit 'Upvote' %>
-  <% end %>
-
-
+    <%= form_for [comment, Upvote.new] do |f| %>
+      <%= hidden_field_tag :vote, 1 %>
+      <%= f.submit "Upvote" %>
+    <% end %>
+    <%= form_for [comment, Upvote.new] do |f| %>
+      <%= hidden_field_tag :vote, -1 %>
+      <%= f.submit "Downvote" %>
+    <% end %>
   </p>
 <% end %>
 
