@@ -17,3 +17,5 @@
 
 # Ignore ENV file
 /.env
+
+/public/uploads

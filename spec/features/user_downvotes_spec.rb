@@ -26,7 +26,6 @@ require 'rails_helper'
     comment = FactoryGirl.create(:comment)
 
     #sign in the user!
-    binding.pry
     visit "posts/#{comment.post.id}"
 
     click_on "Downvote"
