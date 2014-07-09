@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   end
 
   resources :comments do
-    resources :upvotes
+    resources :upvotes, only: [:new]
   end
 
   resources :posts do
     resources :upvotes
   end
 
-  resources :users
+  resources :users, only: [:show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

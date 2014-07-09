@@ -4,13 +4,20 @@ class UpvotesController < ApplicationController
     object_type
     if current_user
       @upvote_pair = UpvotePair.find_by(upvote_id: @upvotable_object.upvote.id, user_id: current_user.id)
+      binding.pry
       if @upvote_pair.nil?
-        @upvotable_object.upvote.count += 1
+        @upvotable_object.upvote.count += params[:vote].to_i
         @upvotable_object.upvote.save
-        UpvotePair.create(upvote_id: @upvotable_object.upvote.id, user_id: current_user.id)
+        UpvotePair.create(upvote_id: @upvotable_object.upvote.id, user_id: current_user.id, vote: params[:vote].to_i)
         flash[:notice] = "Successfully voted!"
       else
-        flash[:notice] = "You already upvoted this!"
+        if @upvote_pair.vote == params[:vote].to_i
+          flash[:notice] = "You already voted on this!"
+        else
+          @upvote_pair.vote = params[:vote].to_i
+          @upvote_pair.save
+          flash[:notice] = "Vote changed!"
+        end
       end
     else
       flash[:notice] = "You must log in to upvote!"
@@ -23,7 +30,6 @@ class UpvotesController < ApplicationController
   def object_type
     if params.has_key?(:comment_id)
       @upvotable_object = Comment.find(params[:comment_id])
-
     else
       @upvotable_object = Post.find(params[:post_id])
     end

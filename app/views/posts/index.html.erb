@@ -19,9 +19,14 @@
       <p class="post-title"><a href="posts/<%=post.id%>"> |> <%= post.title %></a></p>
       <br>
       <br>
-      <p class="post-info">by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | upvotes: <%= post.upvote.count %></p>
+      <p class="post-info">by: <%= post.user.username %> | on: <%= post.created_at.to_s[0..10] %> | votes: <%= post.upvote.count %></p>
       <%= form_for [post, Upvote.new] do |f| %>
-      <%= f.submit "Upvote" %>
+        <%= hidden_field_tag :vote, 1 %>
+        <%= f.submit "Upvote" %>
+      <% end %>
+      <%= form_for [post, Upvote.new] do |f| %>
+        <%= hidden_field_tag :vote, -1 %>
+        <%= f.submit "Downvote" %>
       <% end %>
     </div>
     <br>

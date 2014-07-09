@@ -11,48 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625235540) do
+ActiveRecord::Schema.define(version: 20140617141329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: true do |t|
-    t.integer "user_id", null: false
-  end
-
   create_table "comments", force: true do |t|
     t.text     "description", null: false
     t.integer  "post_id",     null: false
+    t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",     null: false
   end
 
   create_table "posts", force: true do |t|
     t.string   "title",       null: false
     t.text     "description", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "user_id",     null: false
     t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "upvote_pairs", force: true do |t|
-    t.integer "user_id",   null: false
-    t.integer "upvote_id", null: false
+    t.integer "user_id",               null: false
+    t.integer "upvote_id",             null: false
+    t.integer "vote",      default: 0, null: false
   end
 
   create_table "upvotes", force: true do |t|
-    t.integer "count",          default: 0
     t.integer "user_id",                    null: false
     t.integer "upvotable_id",               null: false
     t.string  "upvotable_type",             null: false
+    t.integer "count",          default: 0
   end
 
   create_table "users", force: true do |t|
-    t.string "username", null: false
-    t.string "provider"
-    t.string "uid"
+    t.string   "username",   null: false
+    t.string   "uid"
+    t.string   "provider"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
