@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617141329) do
+ActiveRecord::Schema.define(version: 20140709183557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,25 +33,19 @@ ActiveRecord::Schema.define(version: 20140617141329) do
     t.datetime "updated_at"
   end
 
-  create_table "upvote_pairs", force: true do |t|
-    t.integer "user_id",               null: false
-    t.integer "upvote_id",             null: false
-    t.integer "vote",      default: 0, null: false
-  end
-
-  create_table "upvotes", force: true do |t|
-    t.integer "user_id",                    null: false
-    t.integer "upvotable_id",               null: false
-    t.string  "upvotable_type",             null: false
-    t.integer "count",          default: 0
-  end
-
   create_table "users", force: true do |t|
     t.string   "username",   null: false
     t.string   "uid"
     t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "votes", force: true do |t|
+    t.integer "user_id",                    null: false
+    t.integer "upvotable_id",               null: false
+    t.string  "upvotable_type",             null: false
+    t.integer "count",          default: 0
   end
 
 end

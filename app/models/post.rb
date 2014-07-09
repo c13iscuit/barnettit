@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
-  has_one :upvote, :as => :upvotable
+  has_one :upvote, as: :upvotable
   mount_uploader :image, ImageUploader
 
   validates :title, length: {
