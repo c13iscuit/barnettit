@@ -1,39 +1,10 @@
 require 'rails_helper'
 
 describe Comment do
+  it { should belong_to(:post) }
+  it { should belong_to(:user) }
+  it { should have_many(:votes) }
 
-  describe 'Associations' do
-
-    it 'associates comments with a post' do
-      comment = FactoryGirl.create(:comment)
-      Post.count.should == 1
-      comment.post.title.should == 'I love beer'
-    end
-
-    it 'associates upvotes with a comment' do
-      user = FactoryGirl.create(:user)
-      upvote = FactoryGirl.create(:comment_upvote, user_id: user.id)
-      Comment.count.should == 1
-      Comment.find(upvote.upvotable_id).description.should == 'This post wasnt very helpful'
-    end
-
-    it 'associates comment with a user' do
-      comment = FactoryGirl.create(:comment)
-      comment.user.username.should == 'cbtest'
-    end
-  end
-
-  it 'creates a new full entry' do
-    FactoryGirl.create(:comment).should be_valid
-  end
-
-  it 'requires description' do
-    comment = FactoryGirl.build(:comment, description: nil)
-    expect(!comment.valid?)
-  end
-
-  it 'requires user_id' do
-    comment = FactoryGirl.build(:comment, user_id: nil)
-    expect(!comment.valid?)
-  end
+  it { should have_valid(:description).when("Awesome post!", "Great job, dude") }
+  it { should_not have_valid(:description).when(nil, '') }
 end
