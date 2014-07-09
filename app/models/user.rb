@@ -12,4 +12,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :upvotes
   has_many :upvote_pairs
+
+  validates_uniqueness_of :uid, scope: :provider
+  validates_presence_of :username
 end
