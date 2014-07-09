@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
-  has_many :upvotes
-  has_many :upvote_pairs
+  has_many :votes
 
   validates_uniqueness_of :uid, scope: :provider
   validates_presence_of :username
