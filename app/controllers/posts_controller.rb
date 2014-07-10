@@ -4,8 +4,12 @@ class PostsController < ApplicationController
   def index
     if params[:sort] == 'votes'
       @posts = Post.order('score desc').page(params[:page]).per(6)
-    else
+    elsif params[:sort] == 'date'
       @posts = Post.order(created_at: :desc).page(params[:page]).per(6)
+    elsif params[:sort] == 'hot'
+      @posts = Post.order('score desc', created_at: :desc).page(params[:page]).per(6)
+    else params[:sort] == 'hot'
+      @posts = Post.order('score desc', created_at: :desc).page(params[:page]).per(6)
     end
   end
 
