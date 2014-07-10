@@ -4,10 +4,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     if current_user
       if @comment.save
-        @upvote = Upvote.create({upvotable_id: @comment.id, upvotable_type: 'Comment', count: 0, user_id: session[:user_id]})
         flash[:notice] = "Success!"
       else
-        flash[:notice] = "Comment must contain at least 50 characters"
+        flash[:notice] = "Comment can't be blank!"
       end
     else
       flash[:notice] = "You must sign in to submit an comment!"

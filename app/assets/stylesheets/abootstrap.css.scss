@@ -26,15 +26,21 @@
 
 .post-image {
   float: left;
+  margin-right: 10px;
 }
 
 .post-title {
   font-size: 20px;
   float: left;
   margin-bottom: 0px;
+  text-decoration: underline;
 }
 
 .post-info {
   float: left;
-  margin-top: 0px;
+  margin-top: -10px;
+}
+
+.post-info-link {
+  text-decoration: none;
 }

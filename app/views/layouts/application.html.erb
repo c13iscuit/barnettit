@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>BARNETTIT</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,17 +16,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">barnettit</a>
+      <a class="navbar-brand" href="/">barnettit</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create a post!<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/posts/new">text</a></li>
-            <li><a href="/posts/new">image</a></li>
-            <li><a href="/posts/new">link</a></li>
-          </ul>
+          <a href="posts/new">Create a post!</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -30,7 +30,7 @@ class PostsController < ApplicationController
       if @post.save
         redirect_to :posts
       else
-        flash[:notice] = "Title must contain at least 10 characters and Description must contain at least 25 characters"
+        flash[:notice] = "Title can't be blank!"
         render :new
       end
     else
@@ -60,6 +60,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :image)
+    params.require(:post).permit(:title, :description, :image, :url)
   end
 end

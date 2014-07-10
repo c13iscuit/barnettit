@@ -4,13 +4,13 @@
 
 <div>
   Sort by:
-  <%= button_to "Upvotes", :user, method: 'get', params: {sort: 'upvotes'} %>
+  <%= button_to "Votes", :user, method: 'get', params: {sort: 'votes'} %>
   <%= button_to "Date", :user, method: 'get', params: {sort: 'date'} %>
 </div>
 
 <h3>Post History</h3>
 <% @posts.each do |post| %>
-<p><%= link_to post.title, post_path(post.id) %> | <%= post.created_at.to_s[0..10] %> | upvotes <%= post.upvote.count %></p>
+<p><%= link_to post.title, post_path(post.id) %> | <%= post.created_at.to_s[0..10] %> | upvotes <%= post.score %></p>
 <% end %>
 
 
