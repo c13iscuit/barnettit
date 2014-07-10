@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
   def index
-    if params[:sort] == 'upvotes'
-      @posts = Post.all.joins(:upvote).order('count desc').page(params[:page]).per(6)
+    if params[:sort] == 'votes'
+      @posts = Post.order('value').page(params[:page]).per(6)
     else
-      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(6)
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(6)
     end
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(post_id: params[:id]).joins(:upvote)
-    @upvote = Upvote.new
+    @comments = Comment.where(post_id: params[:id])
+    @vote = Vote.new
   end
 
   def new
@@ -28,7 +28,6 @@ class PostsController < ApplicationController
     @post = Post.new(@params)
     if current_user
       if @post.save
-        @upvote = Upvote.create({upvotable_id: @post.id, upvotable_type: 'Post', count: 0, user_id: session[:user_id]})
         redirect_to :posts
       else
         flash[:notice] = "Title must contain at least 10 characters and Description must contain at least 25 characters"

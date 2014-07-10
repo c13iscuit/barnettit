@@ -15,15 +15,12 @@
 <h3>Comments:</h3>
 <% @comments.each do |comment| %>
   <p><%= comment.description %></p>
-  <p>upvotes: <%= comment.upvote.count %>
-    <%= form_for [comment, Upvote.new] do |f| %>
-      <%= hidden_field_tag :vote, 1 %>
-      <%= f.submit "Upvote" %>
-    <% end %>
-    <%= form_for [comment, Upvote.new] do |f| %>
-      <%= hidden_field_tag :vote, -1 %>
-      <%= f.submit "Downvote" %>
-    <% end %>
+  <p>
+    votes: <%= comment.score %>
+
+    <%= button_to "Upvote", comment_votes_path(comment), params: { value: 1, votable_id: comment.id, votable_type: comment.class } %>
+
+    <%= button_to "Downvote", comment_votes_path(comment), params: { value: -1, votable_id: comment.id, votable_type: comment.class } %>
   </p>
 <% end %>
 

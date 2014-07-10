@@ -4,4 +4,8 @@ class Comment < ActiveRecord::Base
   has_many :votes, as: :votable
 
   validates :description, length: { minimum: 10 }
+
+  def score
+    Vote.where(votable_id: id, votable_type: "Comment").sum(:value)
+  end
 end
