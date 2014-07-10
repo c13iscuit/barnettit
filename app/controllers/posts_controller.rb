@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authorize_user, only: [:create]
+
   def index
     if params[:sort] == 'votes'
-      @posts = Post.order('value').page(params[:page]).per(6)
+      @posts = Post.order('score desc').page(params[:page]).per(6)
     else
       @posts = Post.order(created_at: :desc).page(params[:page]).per(6)
     end
@@ -15,27 +17,18 @@ class PostsController < ApplicationController
   end
 
   def new
-    if !current_user
-      flash[:notice] = "You must be logged in to post!"
-      redirect_to :posts
-    else
-      @post = Post.new
-    end
+    @post = Post.new
   end
 
   def create
     @params = params_with_uid(post_params)
     @post = Post.new(@params)
-    if current_user
-      if @post.save
-        redirect_to :posts
-      else
-        flash[:notice] = "Title can't be blank!"
-        render :new
-      end
+
+    if @post.save
+      redirect_to :posts
     else
-      flash[:notice] = "You must log in to post!"
-      redirect_to :new_post
+      flash[:notice] = "Title can't be blank!"
+      render :new
     end
   end
 

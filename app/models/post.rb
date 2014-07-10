@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  def score
+  def score_count
     Vote.where(votable_id: id, votable_type: "Post").sum(:value)
   end
 end

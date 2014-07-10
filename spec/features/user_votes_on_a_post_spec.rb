@@ -14,7 +14,7 @@ feature 'user can vote on posts', %Q{
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"
-    expect(post.score).to eq(1)
+    expect(post.score_count).to eq(1)
   end
 
   scenario 'user can upvote a post only once' do
@@ -26,7 +26,7 @@ feature 'user can vote on posts', %Q{
     click_on "Upvote"
 
     expect(page).to have_content "votes: 1"
-    expect(post.score).to eq(1)
+    expect(post.score_count).to eq(1)
   end
 
   scenario 'user can downvote a post' do
@@ -38,7 +38,7 @@ feature 'user can vote on posts', %Q{
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
-    expect(post.score).to eq(-1)
+    expect(post.score_count).to eq(-1)
   end
 
   scenario 'user can downvote a post only once' do
@@ -50,6 +50,6 @@ feature 'user can vote on posts', %Q{
     click_on "Downvote"
 
     expect(page).to have_content "votes: -1"
-    expect(post.score).to eq(-1)
+    expect(post.score_count).to eq(-1)
   end
 end

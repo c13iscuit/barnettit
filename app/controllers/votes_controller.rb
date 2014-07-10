@@ -6,6 +6,7 @@ class VotesController < ApplicationController
     if vote.update_attributes(value: params[:value])
       flash[:notice] = "Successfully voted!"
     end
+    vote.votable.update_attributes(score: vote.votable.score_count)
     redirect_to :back
   end
 

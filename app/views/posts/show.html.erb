@@ -14,14 +14,24 @@
 
 <h3>Comments:</h3>
 <% @comments.each do |comment| %>
-  <p><%= comment.description %></p>
-  <p>
-    votes: <%= comment.score %>
-
+  <div class="row">
+    <div class="col-md-7">
+      <p><%= comment.description %></p>
+      <p>
+        by:
+        <a href="/users/<%= comment.user.id %>">
+          <%= comment.user.username %>
+        </a>
+        | <%= time_ago_in_words(comment.created_at) %> ago
+        | votes: <%= comment.score %>
+      </p>
+    </div>
+  <div class="col-md-1">
     <%= button_to "Upvote", comment_votes_path(comment), params: { value: 1, votable_id: comment.id, votable_type: comment.class } %>
 
     <%= button_to "Downvote", comment_votes_path(comment), params: { value: -1, votable_id: comment.id, votable_type: comment.class } %>
-  </p>
+  </div>
+</div>
 <% end %>
 
 <h3>Comment on this post:</h3>

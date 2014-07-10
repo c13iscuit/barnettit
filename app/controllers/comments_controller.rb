@@ -1,15 +1,14 @@
 class CommentsController < ApplicationController
+  before_action :authorize_user, only: [:create]
+
   def create
     @comment = Comment.new(params_with_uid(comment_params))
     @post = Post.find(params[:post_id])
-    if current_user
-      if @comment.save
-        flash[:notice] = "Success!"
-      else
-        flash[:notice] = "Comment can't be blank!"
-      end
+
+    if @comment.save
+      flash[:notice] = "Success!"
     else
-      flash[:notice] = "You must sign in to submit an comment!"
+      flash[:notice] = "Comment can't be blank!"
     end
     redirect_to @post
   end

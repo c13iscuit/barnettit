@@ -15,7 +15,7 @@ feature 'user can vote on comments', %Q{
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"
-    expect(comment.score).to eq(1)
+    expect(comment.score_count).to eq(1)
   end
 
   scenario 'user can upvote a comment only once' do
@@ -28,7 +28,7 @@ feature 'user can vote on comments', %Q{
     click_on "Upvote"
 
     expect(page).to have_content "votes: 1"
-    expect(comment.score).to eq(1)
+    expect(comment.score_count).to eq(1)
   end
 
   scenario 'user can downvote a comment' do
@@ -41,7 +41,7 @@ feature 'user can vote on comments', %Q{
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
-    expect(comment.score).to eq(-1)
+    expect(comment.score_count).to eq(-1)
   end
 
   scenario 'user can downvote a comment only once' do
@@ -54,6 +54,6 @@ feature 'user can vote on comments', %Q{
     click_on "Downvote"
 
     expect(page).to have_content "votes: -1"
-    expect(comment.score).to eq(-1)
+    expect(comment.score_count).to eq(-1)
   end
 end

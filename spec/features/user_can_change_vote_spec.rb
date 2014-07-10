@@ -14,13 +14,13 @@ feature 'user can change their vote on comments and posts', %Q{
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
-    expect(post.score).to eq(-1)
+    expect(post.score_count).to eq(-1)
 
     click_on "Upvote"
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"
-    expect(post.score).to eq(1)
+    expect(post.score_count).to eq(1)
   end
 
   scenario 'user can change their vote on a comment' do
@@ -33,12 +33,12 @@ feature 'user can change their vote on comments and posts', %Q{
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
-    expect(comment.score).to eq(-1)
+    expect(comment.score_count).to eq(-1)
 
     click_on "Upvote"
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"
-    expect(comment.score).to eq(1)
+    expect(comment.score_count).to eq(1)
   end
 end
