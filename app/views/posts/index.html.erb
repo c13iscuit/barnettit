@@ -16,8 +16,8 @@
       <div class="col-md-7 col-md-offset-1">
         <ul class="nav navbar-nav">
           <li><%= button_to "Hot", :posts, method: 'get', params: {sort: 'hot'} %></li>
-          <li><%= button_to "Votes", :posts, method: 'get', params: {sort: 'votes'} %></li>
-          <li><%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %></li>
+          <li><%= button_to "Popular", :posts, method: 'get', params: {sort: 'votes'} %></li>
+          <li><%= button_to "New", :posts, method: 'get', params: {sort: 'date'} %></li>
         </ul>
       </div>
     </div>
@@ -33,8 +33,8 @@
       <div class="col-md-7 col-md-offset-1">
         <ul class="nav navbar-nav">
           <li><%= button_to "Hot", :posts, method: 'get', params: {sort: 'hot'} %></li>
-          <li><%= button_to "Votes", :posts, method: 'get', params: {sort: 'votes'} %></li>
-          <li><%= button_to "Date", :posts, method: 'get', params: {sort: 'date'} %></li>
+          <li><%= button_to "Popular", :posts, method: 'get', params: {sort: 'votes'} %></li>
+          <li><%= button_to "New", :posts, method: 'get', params: {sort: 'date'} %></li>
         </ul>
       </div>
     </div>
@@ -43,12 +43,14 @@
 
     <% @posts.each do |post| %>
       <div class="row">
-        <div class="col-md-7 col-md-offset-1">
+        <div class="col-md-1 col-md-offset-1">
           <span class="post-image">
             <%= image_tag post.image_url, size: '60x60' if post.image? %>
             <%= image_tag "default_no_image_for_post.png", size: '60x60' if !post.image? %>
           </span>
+        </div>
 
+        <div class="col-md-6 col-md-offset-1", style="padding-left: 0px;">
           <p class="post-title">
             <% if post.url? %>
               <a href= "<%= post.url %>" >
@@ -83,15 +85,16 @@
           <%= button_to "Downvote", post_votes_path(post), params: { value: -1, votable_id: post.id, votable_type: post.class } %>
         </div>
       </div>
-
       <br>
-
     <% end %>
   </div>
+
   <div class="row">
-    <hr>
+    <div class="col-md-10 col-md-offset-1">
+      <hr>
+    </div>
     <div class="col-md-4 col-md-offset-5">
-      <%= paginate @posts %>
+      <p class="paging"><%= paginate @posts %></p>
     </div>
   </div>
 </div>

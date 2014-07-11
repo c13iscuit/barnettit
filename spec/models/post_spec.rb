@@ -13,7 +13,7 @@ describe Post do
   describe "#score" do
     it "should total the votes" do
       vote = FactoryGirl.create(:post_vote)
-      expect(vote.votable.score).to eq(1)
+      expect(vote.votable.score_count).to eq(1)
     end
   end
 end
