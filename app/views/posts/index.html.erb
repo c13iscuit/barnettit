@@ -18,7 +18,7 @@
   </div>
 
   <div class="col-md-10 col-md-offset-1">
-    <hr>
+    <hr class="style-eight">
   </div>
 </div>
 
@@ -32,8 +32,10 @@
           <%= image_tag post.image_url,
             size: '60x60' if post.image? %>
           <%= image_tag "default_no_image_for_post.png",
-            size: '60x60' if !post.image? &&
+            size: '60x60' if !post.image? && post.url &&
             !post.url.match(/jpg|tif|gif|png/i) %>
+          <%= image_tag "default_no_image_for_post.png",
+            size: '60x60' if !post.image? && !post.url? %>
           <%= image_tag post.url,
             size: '60x60' if post.url? &&
             post.url.match(/jpg|tif|gif|png/i) %>
@@ -87,9 +89,14 @@
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <hr>
+    <hr class="style-eight">
   </div>
-  <div class="col-md-4 col-md-offset-5">
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
     <p class="paging"><%= paginate @posts, theme: 'twitter-bootstrap-3' %></p>
   </div>
 </div>
