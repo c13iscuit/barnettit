@@ -26,11 +26,17 @@
 
 <% @posts.each do |post| %>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-11 col-md-offset-1">
       <div class="col-md-1">
         <span class="post-image">
-          <%= image_tag post.image_url, size: '60x60' if post.image? %>
-          <%= image_tag "default_no_image_for_post.png", size: '60x60' if !post.image? %>
+          <%= image_tag post.image_url,
+            size: '60x60' if post.image? %>
+          <%= image_tag "default_no_image_for_post.png",
+            size: '60x60' if !post.image? &&
+            !post.url.match(/jpg|tif|gif|png/i) %>
+          <%= image_tag post.url,
+            size: '60x60' if post.url? &&
+            post.url.match(/jpg|tif|gif|png/i) %>
         </span>
       </div>
 
