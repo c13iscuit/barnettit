@@ -22,6 +22,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'bootstrap_form'
+gem 'bootstrap-kaminari-views'
 
 group :test, :development do
   gem 'capybara'

@@ -1,7 +1,7 @@
 @import 'bootstrap';
 
 .barnettit {
-  font-size: 3em;
+  font-size: 4.5em;
 }
 
 #user-portrait {
@@ -15,17 +15,14 @@
 }
 
 #signout {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 75px;
   margin-bottom: -10px;
 }
 
 #login-button {
-  font-size: .8em;
-}
-
-.new-post {
-  margin-left: 10px;
+  font-size: 1.1em;
+  margin-top: 5px;
 }
 
 .post-image {
@@ -55,10 +52,6 @@
 
 .sort-button {
   margin-right: 15px;
-}
-
-#show-all {
-
 }
 
 .paging {
