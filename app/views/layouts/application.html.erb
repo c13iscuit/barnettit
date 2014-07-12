@@ -8,33 +8,31 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="navbar navbar-default" role="navigation">
+<div class="navbar navbar-default" role="navigation" style="background-color:#454545;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">barnettit</a>
+      <a class="barnettit" href="/" style="color:#FF9900;">barnettit</a>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="/posts/new">Create a post!</a>
-        </li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li id="user-portrait"><%= image_tag "user_default_thumb.png", size: '50x50'%></li>
+          <li id="user-portrait"><%= image_tag "user_default_thumb.png", size: '60x55'%></li>
           <li id="username"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
           <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
         <% else %>
-          <a class="btn btn-block btn-social btn-facebook", href = "/auth/facebook">
+          <br>
+          <a class="btn btn-block btn-social btn-facebook", id="login-button",
+          href = "/auth/facebook">
             <i class="fa fa-facebook fa-lg"></i> Sign in with Facebook
           </a>
-          <a class="btn btn-block btn-social btn-twitter", href = "/auth/twitter">
+          <a class="btn btn-block btn-social btn-twitter", id="login-button",
+          href = "/auth/twitter">
             <i class="fa fa-twitter"></i> Sign in with Twitter
           </a>
         <% end %>
       </ul>
     </div>
-          <br>
+    <br>
   </div>
 </div>
 
@@ -50,16 +48,42 @@
   <%= yield %>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-   <div class="footer-contents">
-      <hr>
-      a c13iscuit labs creation @ Launch Academy 2014
-      <br>
-      <br>
+<footer class="footer sticky-footer" role="contentinfo" style="background-color:#454545;">
+  <div class="container">
+    <div class="row">
+      <div class="footer-section col-md-6">
+        <form class="footer-newsletter">
+          <h4>Don't be a stranger! Sign up for the newsletter!</h4>
+          <div class="footer-newsletter-field-wrap">
+            <input class="form-control form-control--dark newsletter-email-field" type="email" placeholder="Email" required="true">
+            <button type="submit">sign me up</button>
+          </div>
+          <span class="newsletter-message"></span>
+        </form>
+        <p></p><p>c13iscuit labs is proud to present a slimmer, leaner version of reddit that brings content to you!</p><p></p>
+      </div>
+
+      <div class="footer-right col-md-6">
+        <div class="row">
+          <div class="footer-section col-sm-6">
+          <br>
+            <p><a href="">My Account</a></p>
+            <p><a href="/faq/">Frequently Asked Questions</a></p>
+            <p><a href="http://blog.flintandtinderusa.com/">Blog</a></p>
+          </div>
+
+        <div class="footer-section col-sm-6">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="logo"><a href="https://github.com/c13iscuit">
+              <%= image_tag "default_no_image_for_post.png", size: '60x60' %></a></li>
+            <li class="logo"><a href="http://www.launchacademy.com/">
+              <%= image_tag "LA_logo.jpg", size: '60x60' %></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</footer>
 
 </body>
 </html>
