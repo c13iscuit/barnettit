@@ -1,16 +1,19 @@
 <div class="row">
   <br>
-  <div class="col-md-4 col-md-offset-1">
+  <div class="col-md-5 col-md-offset-1">
     <form action="/posts" method="get">
       <div class="btn-group btn-group-lg">
-        <button name="sort" type="submit" class="btn btn-default" value="hot">Hot</button>
-        <button name="sort" type="submit" class="btn btn-default" value="votes">Popular</button>
-        <button name="sort" type="submit" class="btn btn-default" value="date">New</button>
+        <button name="sort" type="submit" class="btn btn-default" value="hot">
+          <span class="glyphicon glyphicon-fire"></span> Hot </button>
+        <button name="sort" type="submit" class="btn btn-default" value="votes">
+        <span class="glyphicon glyphicon-bullhorn"></span> Popular</button>
+        <button name="sort" type="submit" class="btn btn-default" value="date">
+        <span class="glyphicon glyphicon-time"></span> New </button>
       </div>
     </form>
   </div>
 
-  <div class="col-md-2 col-md-offset-4">
+  <div class="col-md-2 col-md-offset-3">
     <form action="/posts/new" method="new" class="new-post">
       <div class="btn-group btn-group-lg">
         <button type="submit" class="btn btn-default">Add a post</button>
@@ -44,11 +47,12 @@
       <div class="col-md-7 col-md-offset-1", style="padding-left: 0px;">
         <p class="post-title">
           <% if post.url? %>
-            <a href= "<%= post.url %>", style="color:#000000;" >
+            <a href= "<%= post.url %>", style="color:#585858;" >
               <%= post.title[0..40] %> <% if post.title.length > 40 %>... <% end %>
             </a>
+            <span class="glyphicon glyphicon-share"></span>
           <% else %>
-            <a href= "posts/<%=post.id%>", style="color:#000000;">
+            <a href= "posts/<%=post.id%>", style="color:#585858;">
               <%= post.title[0..40] %> <% if post.title.length > 40 %>... <% end %>
             </a>
           <% end %>
@@ -71,12 +75,12 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "",
             post_votes_path(post, value: 1, votable_id: post.id, votable_type: post.class),
-            method: :new, class: "fa fa-thumbs-o-up fa-2x", style: "color:#000000;" %>
+            method: :new, class: "fa fa-thumbs-o-up fa-2x" %>
           </li>
 
           <li><%= link_to "",
             post_votes_path(post, value: -1, votable_id: post.id, votable_type: post.class),
-            method: :new, class: "fa fa-thumbs-o-down fa-2x", style: "color:#000000;" %>
+            method: :new, class: "fa fa-thumbs-o-down fa-2x", style: "color:#666699;" %>
           </li>
         </ul>
       </div>
@@ -96,7 +100,7 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <p id="paging">
-      <%= paginate @posts, theme: 'twitter-bootstrap-3', id: "paging-buttons" %>
+      <%= paginate @posts, theme: 'twitter-bootstrap-3', :pagination_class => "pagination-sm" %>
     </p>
   </div>
 </div>
