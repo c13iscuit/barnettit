@@ -10,40 +10,47 @@
 <body>
 <div class="navbar navbar-default" role="navigation" style="background-color:#454545;">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="barnettit" href="/" style="color:#FF9900;">~barnettit</a>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <a class="barnettit" href="/">~barnettit</a>
+      </div>
+      <div class="col-md-4 col-md-offset-3">
+        <ul class="nav navbar-nav">
+          <% if current_user %>
+            <li id="user-portrait">
+            <%= image_tag "user_default_thumb.png", size: '90x90'%></li>
+            <li><%= link_to current_user.username,
+              user_path(session[:user_id]), id: "username" %></li>
+            <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
+          <% else %>
+            <a class="btn btn-block btn-social btn-facebook",
+              id="login-button", href = "/auth/facebook">
+              <i class="fa fa-facebook fa-lg"></i> Sign in with Facebook
+            </a>
+            <a class="btn btn-block btn-social btn-twitter",
+              id="login-button", href = "/auth/twitter">
+              <i class="fa fa-twitter"></i> Sign in with Twitter
+            </a>
+          <% end %>
+        </ul>
+      </div>
     </div>
-
-    <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
-        <li id="user-portrait"><%= image_tag "user_default_thumb.png", size: '60x55'%></li>
-        <li id="username"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
-        <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
-      <% else %>
-        <a class="btn btn-block btn-social btn-facebook", id="login-button",
-        href = "/auth/facebook">
-          <i class="fa fa-facebook fa-lg"></i> Sign in with Facebook
-        </a>
-        <a class="btn btn-block btn-social btn-twitter", id="login-button",
-        href = "/auth/twitter">
-          <i class="fa fa-twitter"></i> Sign in with Twitter
-        </a>
-      <% end %>
-    </ul>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-3 col-md-offset-5">
-    <%= flash[:notice] %>
+<% if flash.any? %>
+  <div class="col-md-12">
+    <div class="alert alert-warning" role="alert">
+      <p style="text-align:center;"><%= flash[:notice] %></p>
+    </div>
   </div>
-</div>
+<%end%>
 
-<div class="container">
+<div class="container" style="background-color:#F0FFFF;">
   <%= yield %>
 </div>
 
-<footer class="footer sticky-footer" role="contentinfo" style="background-color:#454545;">
+<footer class="footer sticky-footer" style="background-color:#454545;">
   <div class="container">
     <div class="row">
       <div class="footer-section col-md-4">
