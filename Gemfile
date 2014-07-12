@@ -21,6 +21,7 @@ gem 'rmagick'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'bootstrap_form'
 
 group :test, :development do
   gem 'capybara'

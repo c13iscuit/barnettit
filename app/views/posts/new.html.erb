@@ -5,47 +5,53 @@
 </ul>
 
 <h3>Add a post:</h3>
-
+<br>
 <div class="tab-content">
   <div class="tab-pane active" id="text">
-    <%= form_for @post, :html => {multipart: true} do |f|%>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <%= bootstrap_form_for @post do |f|%>
 
-      <%= f.label :title %>:
-      <%= f.text_field :title %><br>
+          <%= f.text_field :title %><br>
 
-      <%= f.label :text %>:<br>
-      <%= f.text_area :description %><br>
+          <%= f.text_area :description %><br>
 
-      <%= f.submit %>
-    <% end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="tab-pane" id="link">
-    <%= form_for @post, :html => {multipart: true} do |f|%>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <%= bootstrap_form_for @post do |f|%>
 
-      <%= f.label :title %>:
-      <%= f.text_field :title %><br>
+          <%= f.text_field :title %><br>
 
-      <%= f.label :url %>:<br>
-      <%= f.text_field :url %><br>
+          <%= f.text_field :url %><br>
 
-      <%= f.submit %>
-    <% end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="tab-pane" id="photo">
-    <%= form_for @post, :html => {multipart: true} do |f|%>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <%= bootstrap_form_for @post, :html => {multipart: true} do |f|%>
 
-      <%= f.label :title %>:
-      <%= f.text_field :title %><br>
+          <%= f.text_field :title %><br>
 
-      <%= f.label :description %>:<br>
-      <%= f.text_area :description %><br>
+          <%= f.text_area :description %><br>
 
-      <%= f.file_field :image %><br>
+          <%= f.file_field :image %><br>
 
-      <%= f.submit %>
-    <% end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

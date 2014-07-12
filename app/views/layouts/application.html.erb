@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-default" role="navigation">
@@ -24,12 +25,16 @@
           <li id="username"><%= link_to current_user.username, user_path(session[:user_id]) %></li>
           <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
         <% else %>
-          <li>Sign in with:</li>
-          <li id="fb"><a href = "/auth/facebook"><img src="http://www.wallstreet.org/wp-content/uploads/2013/10/facebook.png" width="40"></a></li>
-          <li id="twitter"><a href = "/auth/twitter"><img src="http://jonbennallick.co.uk/wp-content/uploads/2012/11/Twitter-Logo-Icon-by-Jon-Bennallick-02.png" width="40"></a></li>
+          <a class="btn btn-block btn-social btn-facebook", href = "/auth/facebook">
+            <i class="fa fa-facebook fa-lg"></i> Sign in with Facebook
+          </a>
+          <a class="btn btn-block btn-social btn-twitter", href = "/auth/twitter">
+            <i class="fa fa-twitter"></i> Sign in with Twitter
+          </a>
         <% end %>
       </ul>
     </div>
+          <br>
   </div>
 </div>
 

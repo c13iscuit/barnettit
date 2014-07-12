@@ -43,44 +43,51 @@
 
     <% @posts.each do |post| %>
       <div class="row">
-        <div class="col-md-1 col-md-offset-1">
-          <span class="post-image">
-            <%= image_tag post.image_url, size: '60x60' if post.image? %>
-            <%= image_tag "default_no_image_for_post.png", size: '60x60' if !post.image? %>
-          </span>
-        </div>
+        <div class="col-md-10 col-md-offset-1">
+          <div class="col-md-1">
+            <span class="post-image">
+              <%= image_tag post.image_url, size: '60x60' if post.image? %>
+              <%= image_tag "default_no_image_for_post.png", size: '60x60' if !post.image? %>
+            </span>
+          </div>
 
-        <div class="col-md-6 col-md-offset-1", style="padding-left: 0px;">
-          <p class="post-title">
-            <% if post.url? %>
-              <a href= "<%= post.url %>" >
-                <%= post.title %>
-              </a>
-            <% else %>
-              <a href= "posts/<%=post.id%>">
-                <%= post.title %>
-              </a>
-            <% end %>
-          </p>
+          <div class="col-md-7 col-md-offset-1", style="padding-left: 0px;">
+            <p class="post-title">
+              <% if post.url? %>
+                <a href= "<%= post.url %>" >
+                  <%= post.title %>
+                </a>
+              <% else %>
+                <a href= "posts/<%=post.id%>">
+                  <%= post.title %>
+                </a>
+              <% end %>
+            </p>
 
+            <br>
+            <br>
 
-          <p class="post-info">
-            by:
-            <a href="/users/<%= post.user.id %>">
-              <%= post.user.username %>
-            </a>
-              | <%= time_ago_in_words(post.created_at) %> ago |
-            <a href="posts/<%=post.id%>" class="post-info-link">
-              <%= post.comments.count %> comments
-            </a>
-              | votes: <%= post.score %>
-          </p>
-        </div>
+            <p class="post-info"> by:
+              <a href="/users/<%= post.user.id %>">
+                <%= post.user.username %> </a>
+                | <%= time_ago_in_words(post.created_at) %> ago |
+              <a href="posts/<%=post.id%>" class="post-info-link">
+                <%= post.comments.count %> comments </a>
+                | votes: <%= post.score %>
+            </p>
+          </div>
 
-        <div class="col-md-1 col-md-offset-1">
-          <%= button_to "Upvote", post_votes_path(post), params: { value: 1, votable_id: post.id, votable_type: post.class } %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "",
+              post_votes_path(post, value: 1, votable_id: post.id, votable_type: post.class),
+              method: :new, class: "fa fa-thumbs-o-up fa-2x" %>
+            </li>
 
-          <%= button_to "Downvote", post_votes_path(post), params: { value: -1, votable_id: post.id, votable_type: post.class } %>
+            <li><%= link_to "",
+              post_votes_path(post, value: -1, votable_id: post.id, votable_type: post.class),
+              method: :new, class: "fa fa-thumbs-o-down fa-2x" %>
+            </li>
+          </ul>
         </div>
       </div>
       <br>

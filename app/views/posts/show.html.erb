@@ -26,12 +26,19 @@
         | votes: <%= comment.score %>
       </p>
     </div>
-  <div class="col-md-1">
-    <%= button_to "Upvote", comment_votes_path(comment), params: { value: 1, votable_id: comment.id, votable_type: comment.class } %>
 
-    <%= button_to "Downvote", comment_votes_path(comment), params: { value: -1, votable_id: comment.id, votable_type: comment.class } %>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "",
+        comment_votes_path(comment, value: 1, votable_id: comment.id, votable_type: comment.class),
+        method: :new, class: "fa fa-thumbs-o-up fa-2x" %>
+      </li>
+
+      <li><%= link_to "",
+        comment_votes_path(comment, value: -1, votable_id: comment.id, votable_type: comment.class),
+        method: :new, class: "fa fa-thumbs-o-down fa-2x" %>
+      </li>
+    </ul>
   </div>
-</div>
 <% end %>
 
 <h3>Comment on this post:</h3>

@@ -12,7 +12,20 @@
 
 <% @posts.each do |post| %>
   <p>
-    <%= link_to post.title, post_path(post.id) %> | <%= post.created_at.to_s[0..10] %> | upvotes <%= post.score %>
+    <% if post.url? %>
+      <a href= "<%= post.url %>" >
+        <%= post.title %>
+      </a>
+    <% else %>
+      <a href= "posts/<%=post.id%>">
+        <%= post.title %>
+      </a>
+    <% end %> |
+    <%= post.created_at.to_s[0..10] %> |
+    <a href="posts/<%=post.id%>" class="post-info-link">
+      <%= post.comments.count %> comments
+    </a>
+    | upvotes <%= post.score %>
   </p>
 <% end %>
 
