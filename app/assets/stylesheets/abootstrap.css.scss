@@ -1,7 +1,7 @@
 @import 'bootstrap';
 
 .btn {
-  background-color:#ECECEC;
+  background-color:#fcf8e3;;
 }
 
 .navbar {
@@ -35,6 +35,10 @@
   margin-top: 5px;
 }
 
+#create-post-button {
+  margin-left: 30px;
+}
+
 .post-image {
   float: left;
   box-shadow: 10px 10px 5px #888888;
@@ -65,8 +69,8 @@
   margin-top: -35px;
 }
 
-.pagination-sm {
-  background-color:#ECECEC;
+#statement {
+  margin-left: -40px;
 }
 
 hr.style-eight {

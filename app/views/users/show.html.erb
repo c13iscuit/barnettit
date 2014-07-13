@@ -2,10 +2,17 @@
 
 <h1>USER ACCOUNT PAGE</h1>
 
-<div>
-  Sort by:
-  <%= button_to "Votes", :user, method: 'get', params: {sort: 'votes'} %>
-  <%= button_to "Date", :user, method: 'get', params: {sort: 'date'} %>
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <form action="/users/<%= params[:id] %>" method="get">
+      <div class="btn-group btn-group-lg">
+      <button name="sort" type="submit" class="btn btn-default" value="votes">
+        <span class="glyphicon glyphicon-bullhorn"></span> votes </button>
+      <button name="sort" type="submit" class="btn btn-default" value="date">
+        <span class="glyphicon glyphicon-time"></span> date </button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <h3>Post History</h3>
