@@ -19,6 +19,7 @@
           <% if current_user %>
             <li id="user-portrait">
             <%= image_tag "user_default_thumb.png", size: '90x90'%></li>
+            <li><%= image_tag "https://api.twitter.com/1/users/profile_image?screen_name=c13iscuit&size=bigger"%></li>
             <li><%= link_to current_user.username,
               user_path(session[:user_id]), id: "username" %></li>
             <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
@@ -38,13 +39,14 @@
   </div>
 </div>
 
-<% if flash.any? %>
-  <div class="col-md-12">
-    <div class="alert alert-warning" role="alert">
-      <p style="text-align:center;"><%= flash[:notice] %></p>
-    </div>
+<div class="col-md-12">
+  <div class="alert alert-warning" role="alert">
+    <p style="text-align:center;">
+    <% if flash.any? %>
+      <%= flash[:notice] %> </p>
+    <% end %>
   </div>
-<%end%>
+</div>
 
 <div class="container" style="background-color:#F8FFFF;">
   <%= yield %>
