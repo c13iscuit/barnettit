@@ -1,0 +1,50 @@
+<h5><%= link_to 'Back to The Front Page', :posts %></h5>
+
+<%= image_tag @post.image_url, size: '300x300' if @post.image? %>
+<p><%= @post.title %></p>
+<p><%= @post.description %></p>
+<p>by: <%= @post.user.username %> on: <%= @post.created_at.to_s[0..10] %></p>
+
+<% if session[:user_id] == @post.user_id %>
+  <div>
+    <%= button_to 'Edit', :edit_post, method: 'get' %>
+    <%= button_to 'Delete', :post, method: 'delete' %>
+  </div>
+<% end %>
+
+<h3>Comments:</h3>
+<% @comments.each do |comment| %>
+  <div class="row">
+    <div class="col-md-7">
+      <p><%= comment.description %></p>
+      <p>
+        by:
+        <a href="/users/<%= comment.user.id %>">
+          <%= comment.user.username %>
+        </a>
+        | <%= time_ago_in_words(comment.created_at) %> ago
+        | votes: <%= comment.score %>
+      </p>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li><%= link_to "",
+        comment_votes_path(comment, value: 1, votable_id: comment.id, votable_type: comment.class),
+        method: :new, class: "fa fa-thumbs-o-up fa-2x" %>
+      </li>
+
+      <li><%= link_to "",
+        comment_votes_path(comment, value: -1, votable_id: comment.id, votable_type: comment.class),
+        method: :new, class: "fa fa-thumbs-o-down fa-2x" %>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<h3>Comment on this post:</h3>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :description %><br>
+  <%= f.submit 'Comment' %>
+<% end %>
+<br>
+<br>

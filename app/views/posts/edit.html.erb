@@ -1,0 +1,18 @@
+<h1>EDITING A POST</h1>
+
+<h3>Edit this post:</h3>
+<%= form_for @post do |f|%>
+
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br>
+
+  <% if @post.description? %>
+    <%= f.label :description %>:<br>
+    <%= f.text_area :description %><br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
+
+<h3>Delete this post:</h3>
+<%= button_to "Delete", :post, method: 'delete' %>

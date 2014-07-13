@@ -1,0 +1,64 @@
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active" id="form-selectors">
+      <a href="#text" role="tab" data-toggle="tab">text</a></li>
+    <li id="form-selectors">
+      <a href="#link" role="tab" data-toggle="tab">link</a></li>
+    <li id="form-selectors">
+      <a href="#photo" role="tab" data-toggle="tab">photo</a></li>
+  </ul>
+</div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <h3>Add a post:</h3>
+  </div>
+</div>
+
+<br>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="text">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <%= bootstrap_form_for @post do |f|%>
+          <%= f.text_field :title %><br>
+          <%= f.text_area :description %><br>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="link">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <%= bootstrap_form_for @post do |f|%>
+          <%= f.text_field :title %><br>
+          <%= f.text_field :url %><br>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="photo">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <%= bootstrap_form_for @post, :html => {multipart: true} do |f|%>
+          <%= f.text_field :title %><br>
+          <%= f.text_area :description %><br>
+          <%= f.file_field :image %><br>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+

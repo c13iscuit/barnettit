@@ -1,4 +1,27 @@
 Rails.application.routes.draw do
+
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/signout' => 'sessions#destroy', :as => :signout
+
+  root 'posts#index'
+
+  resources :posts do
+    resources :comments, only: [:create] do
+      resources :votes, only: [:create]
+    end
+  end
+
+  resources :comments do
+    resources :votes, only: [:create]
+  end
+
+  resources :posts do
+    resources :votes, only: [:create]
+  end
+
+  resources :users, only: [:show]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

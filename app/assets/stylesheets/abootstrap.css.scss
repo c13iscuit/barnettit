@@ -1,0 +1,118 @@
+@import 'bootstrap';
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+.btn {
+  background-color:#FFFFFF;;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.barnettit {
+  font-size: 4.5em;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#user-portrait {
+  marging-right: 10px;
+}
+
+#username {
+  font-size: 24px;
+  margin-right: 10px;
+  color:#FFFFFF;
+}
+
+#signout {
+  font-size: 16px;
+  margin-left: 105px;
+  margin-top: 50px;
+}
+
+#login-button {
+  font-size: 1.1em;
+  margin-top: 5px;
+}
+
+#create-post-button {
+  margin-left: 30px;
+}
+
+#form-selectors {
+  width: 100px;
+  font-size: 20px;
+}
+
+.post-image {
+  float: left;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.post-title {
+  font-size: 20px;
+  float: left;
+  margin-bottom: 0px;
+  text-decoration: underline;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.post-info {
+  float: left;
+  margin-top: -10px;
+}
+
+.post-info-link {
+  text-decoration: none;
+}
+
+.sort-button {
+  margin-right: 15px;
+}
+
+#paging {
+  margin-top: -35px;
+}
+
+#statement {
+  margin-top: 40px;
+  margin-left: -25px;
+}
+
+#statement2 {
+  margin-left: -25px;
+}
+
+#link-icons {
+  margin-left: -30px;
+}
+
+hr.style-eight {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+
+hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+hr.style-four {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}

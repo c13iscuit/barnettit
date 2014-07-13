@@ -1,14 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RescueMission</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>BARNETTIT</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-</head>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'></head>
 <body>
+<div class="navbar navbar-default" role="navigation" style="background-color:#454545;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <a class="barnettit" href="/">~barnettit</a>
+      </div>
+      <div class="col-md-4 col-md-offset-3">
+        <ul class="nav navbar-nav">
+          <% if current_user %>
+            <li id="user-portrait">
+            <%= image_tag "user_default_thumb.png", size: '90x90'%></li>
+            <li><%= image_tag "https://api.twitter.com/1/users/profile_image?screen_name=c13iscuit&size=bigger"%></li>
+            <li><%= link_to current_user.username,
+              user_path(session[:user_id]), id: "username" %></li>
+            <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
+          <% else %>
+            <a class="btn btn-block btn-social btn-facebook",
+              id="login-button", href = "/auth/facebook">
+              <i class="fa fa-facebook fa-lg"></i> Sign in with Facebook
+            </a>
+            <a class="btn btn-block btn-social btn-twitter",
+              id="login-button", href = "/auth/twitter">
+              <i class="fa fa-twitter"></i> Sign in with Twitter
+            </a>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= yield %>
+<div class="col-md-12">
+  <div class="alert alert-warning" role="alert">
+    <p style="text-align:center;">
+    <% if flash.any? %>
+      <%= flash[:notice] %> </p>
+    <% end %>
+  </div>
+</div>
+
+<div class="container" style="background-color:#F8FFFF;">
+  <%= yield %>
+</div>
+
+<footer class="footer sticky-footer" style="background-color:#454545;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      <br>
+        <a class="barnettit" href="/">~barnettit</a>
+      </div>
+      <div class="col-md-3">
+        <p style="color:#FFFFFF;" id="statement">
+          A c13iscuit labs creation @
+        </p>
+        <p style="color:#FFFFFF;" id="statement2">
+          Launch Academy summer 2014
+        </p>
+      </div>
+      <div class="footer-section col-sm-3" id="link-icons">
+        <br>
+        <div class="btn-group btn-group-lg">
+          <button class="btn btn-default">
+            <a href="https://github.com/c13iscuit">
+            <%= image_tag "default_no_image_for_post.png", size: '60x60' %></a>
+          </button>
+          <button class="btn btn-default">
+            <a href="http://www.launchacademy.com/">
+            <%= image_tag "LA_logo copy.png", size: '60x60' %></a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</footer>
 
 </body>
 </html>
