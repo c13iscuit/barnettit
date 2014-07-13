@@ -47,12 +47,12 @@
         <p class="post-title">
           <% if post.url? %>
             <a href= "<%= post.url %>", style="color:#585858;" >
-              <%= post.title[0..40] %> <% if post.title.length > 40 %>... <% end %>
+              <%= post.title[0..34] %> <% if post.title.length > 35 %>... <% end %>
             </a>
             <span class="glyphicon glyphicon-share"></span>
           <% else %>
             <a href= "posts/<%=post.id%>", style="color:#585858;">
-              <%= post.title[0..40] %> <% if post.title.length > 40 %>... <% end %>
+              <%= post.title[0..34] %> <% if post.title.length > 35 %>... <% end %>
             </a>
           <% end %>
         </p>
@@ -97,7 +97,7 @@
 <br>
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-6 col-md-offset-4">
     <p id="paging">
       <%= paginate @posts, theme: 'twitter-bootstrap-3' %>
     </p>

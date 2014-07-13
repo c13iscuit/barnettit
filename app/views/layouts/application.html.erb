@@ -19,7 +19,6 @@
           <% if current_user %>
             <li id="user-portrait">
             <%= image_tag "user_default_thumb.png", size: '90x90'%></li>
-            <li><%= image_tag "https://api.twitter.com/1/users/profile_image?screen_name=c13iscuit&size=bigger"%></li>
             <li><%= link_to current_user.username,
               user_path(session[:user_id]), id: "username" %></li>
             <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>
@@ -53,9 +52,9 @@
 </div>
 
 <footer class="footer sticky-footer" style="background-color:#454545;">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4 col-md-offset-1">
       <br>
         <a class="barnettit" href="/">~barnettit</a>
       </div>

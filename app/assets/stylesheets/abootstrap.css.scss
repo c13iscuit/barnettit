@@ -56,7 +56,8 @@
 }
 
 .post-title {
-  font-size: 20px;
+  font-size: 22px;
+  margin-left: -20px;
   float: left;
   margin-bottom: 0px;
   text-decoration: underline;
@@ -65,7 +66,10 @@
 
 .post-info {
   float: left;
+  margin-left: -20px;
+  font-size: 14px;
   margin-top: -10px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .post-info-link {
@@ -82,15 +86,11 @@
 
 #statement {
   margin-top: 40px;
-  margin-left: -25px;
-}
-
-#statement2 {
-  margin-left: -25px;
 }
 
 #link-icons {
-  margin-left: -30px;
+  margin-left: -20px;
+  margin-top: 0px;
 }
 
 hr.style-eight {

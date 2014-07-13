@@ -14,7 +14,7 @@
 <br>
 
 <div class="row">
-  <div class="col-md-5 col-md-offset-1">
+  <div class="col-md-5 col-md-offset-2">
     <h3>Add a post:</h3>
   </div>
 </div>
@@ -24,7 +24,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="text">
     <div class="row">
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-2">
         <%= bootstrap_form_for @post do |f|%>
           <%= f.text_field :title %><br>
           <%= f.text_area :description %><br>
@@ -36,7 +36,7 @@
 
   <div class="tab-pane" id="link">
     <div class="row">
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-2">
         <%= bootstrap_form_for @post do |f|%>
           <%= f.text_field :title %><br>
           <%= f.text_field :url %><br>
@@ -48,7 +48,7 @@
 
   <div class="tab-pane" id="photo">
     <div class="row">
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-2">
         <%= bootstrap_form_for @post, :html => {multipart: true} do |f|%>
           <%= f.text_field :title %><br>
           <%= f.text_area :description %><br>
