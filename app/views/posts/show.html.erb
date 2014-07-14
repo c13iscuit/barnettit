@@ -1,4 +1,3 @@
-<h5><%= link_to 'Back to The Front Page', :posts %></h5>
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
     <p class="post-title-show"><%= @post.title %></p>
@@ -7,9 +6,12 @@
     <br>
     <br>
   </div>
-  <div class="col-md-6 col-md-offset-1" style="background-color:#FCF8E3; border-radius:10px;">
-    <p class="post-info-show"><%= @post.description %></p>
+  <% if @post.description? %>
+  <div class="col-md-6 col-md-offset-1"
+       style="background-color:#FCF8E3; border-radius:10px;">
+    <p class="post-info-show" style="font-size: 18px;"><%= @post.description %></p>
   </div>
+  <% end %>
   <div class="col-md-6 col-md-offset-1">
     <p class="post-info-show">by:
       <a href="/users/<%= @post.user.id %>">
@@ -18,28 +20,44 @@
       | <%= time_ago_in_words(@post.created_at) %> ago
       | votes: <%= @post.score %>
     </p>
+    <br>
   </div>
 </div>
 
-<% if session[:user_id] == @post.user_id %>
-  <div>
-    <%= button_to 'Edit', :edit_post, method: 'get' %>
-    <%= button_to 'Delete', :post, method: 'delete' %>
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <ul class="nav nav-pills">
+      <li>
+      <form action="/posts">
+        <button class="btn btn-default btn-lg">
+          <span class="fa fa-reply-all"></span> Front Page
+        </button>
+      </form>
+      </li>
+      <% if session[:user_id] == @post.user_id %>
+        <li>
+          <%= button_to 'Edit', :edit_post, method: 'get', class: "btn btn-default btn-lg" %>
+        </li>
+        <li>
+          <%= button_to 'Delete', :post, method: 'delete', class: "btn btn-default btn-lg" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+</div>
 
 <hr class="style-four">
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-1">
-    <h3>Comments:</h3>
+  <div class="col-md-3 col-md-offset-1">
+    <h3 class="post-info-show" style="font-size:30px;">Comments:</h3>
   </div>
 </div>
 
 <% @comments.each do |comment| %>
   <div class="row">
     <div class="col-md-6 col-md-offset-1" style="background-color:#FCF8E3; border-radius:10px;">
-      <p class="post-info-show"><%= comment.description %></p>
+      <p class="post-info-show" style="font-size: 18px;"><%= comment.description %></p>
     </div>
     <div class="col-md-3">
       <ul class="nav navbar-nav">
@@ -52,27 +70,30 @@
         </li>
       </ul>
     </div>
-
   </div>
-  <div class="col-md-6 col-md-offset-1">
-    <p class="comment-info-show">by:
-      <a href="/users/<%= comment.user.id %>">
-        <%= comment.user.username %>
-      </a>
-      | <%= time_ago_in_words(comment.created_at) %> ago
-      | votes: <%= comment.score %>
-    </p>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <p class="comment-info-show">by:
+        <a href="/users/<%= comment.user.id %>">
+          <%= comment.user.username %>
+        </a>
+        | <%= time_ago_in_words(comment.created_at) %> ago
+        | votes: <%= comment.score %>
+      </p>
+    </div>
   </div>
-  <br>
   <br>
 <% end %>
 
+<hr class="style-four">
+
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
-    <h3>Comment on this post:</h3>
+    <h3 class="post-info-show" style="font-size:30px;">Comment on this post:</h3>
     <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_area :description %><br>
-      <%= f.submit 'Comment' %>
+      <%= f.text_area :description, rows: 4, cols: 50 %>
+      <br>
+      <%= f.submit 'Comment', class: "btn btn-default btn-lg" %>
     <% end %>
   </div>
 </div>

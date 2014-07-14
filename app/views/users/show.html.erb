@@ -1,9 +1,5 @@
-<h5><%= link_to "Back to The Front Page", :posts %></h5>
-
-<h1>USER ACCOUNT PAGE</h1>
-
 <div class="row">
-  <div class="col-md-5 col-md-offset-1">
+  <div class="col-md-3 col-md-offset-1">
     <form action="/users/<%= params[:id] %>" method="get">
       <div class="btn-group btn-group-lg">
       <button name="sort" type="submit" class="btn btn-default" value="votes">
@@ -13,27 +9,42 @@
       </div>
     </form>
   </div>
+  <div class="col-md-2">
+    <form action="/posts">
+      <button class="btn btn-default btn-lg">
+        <span class="fa fa-reply-all"></span> Front Page
+      </button>
+    </form>
+  </div>
 </div>
 
-<h3>Post History</h3>
-
-<% @posts.each do |post| %>
-  <p>
-    <% if post.url? %>
-      <a href= "<%= post.url %>" >
-        <%= post.title %>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+  <h3>Post History</h3>
+  <hr class="style-four">
+  <% @posts.each do |post| %>
+    <p class="post-title-show">
+      <% if post.url? %>
+        <a href= "<%= post.url %>", style="color:#585858;" >
+          <%= post.title[0..39] %> <% if post.title.length > 40 %>... <% end %>
+        </a>
+        <span class="glyphicon glyphicon-share"></span>
+      <% else %>
+        <a href= "/posts/<%=post.id%>", style="color:#585858;">
+          <%= post.title[0..39] %> <% if post.title.length > 40 %>... <% end %>
+        </a>
+      <% end %>
+    </p>
+    <p>
+      <%= post.created_at.to_s[0..10] %> |
+      <a href="/posts/<%=post.id%>" class="post-info-link">
+        <%= post.comments.count %> comments
       </a>
-    <% else %>
-      <a href= "posts/<%=post.id%>">
-        <%= post.title %>
-      </a>
-    <% end %> |
-    <%= post.created_at.to_s[0..10] %> |
-    <a href="posts/<%=post.id%>" class="post-info-link">
-      <%= post.comments.count %> comments
-    </a>
-    | upvotes <%= post.score %>
-  </p>
-<% end %>
+      | upvotes <%= post.score %>
+    </p>
+  <% end %>
+  </div>
+</div>
+<br>
 
 

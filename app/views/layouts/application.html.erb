@@ -6,13 +6,16 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'></head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+</head>
 <body>
 <div class="navbar navbar-default" role="navigation" style="background-color:#454545;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 col-md-offset-1">
-        <a class="barnettit" href="/">~barnettit</a>
+        <a class="barnettit" href="/">barnettit</a>
       </div>
       <div class="col-md-4 col-md-offset-3">
         <ul class="nav navbar-nav">
@@ -47,18 +50,18 @@
   </div>
 </div>
 
-<div class="container" style="background-color:#F8FFFF;">
+<div class="container-fluid" style="background-color:#F8FFFF;">
   <%= yield %>
 </div>
 
 <footer class="footer sticky-footer" style="background-color:#454545;">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4 col-md-offset-1">
+      <div class="col-md-3 col-md-offset-1">
       <br>
-        <a class="barnettit" href="/">~barnettit</a>
+        <a class="barnettit" href="/">barnettit</a>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <p style="color:#FFFFFF;" id="statement">
           A c13iscuit labs creation @
         </p>
@@ -66,7 +69,7 @@
           Launch Academy summer 2014
         </p>
       </div>
-      <div class="footer-section col-sm-3" id="link-icons">
+      <div class="footer-section col-md-3" id="link-icons">
         <br>
         <div class="btn-group btn-group-lg">
           <button class="btn btn-default">

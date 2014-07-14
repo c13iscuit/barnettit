@@ -2,25 +2,25 @@
   <div class="col-md-5 col-md-offset-1">
     <form action="/posts" method="get">
       <ul class="nav nav-pills">
-        <li><button name="sort" type="submit" class="btn btn-default" value="hot">
+        <li><button name="sort" type="submit" class="btn btn-default btn-lg" value="hot">
           <span class="glyphicon glyphicon-fire"></span> Hot </button> </li>
-        <li><button name="sort" type="submit" class="btn btn-default" value="votes">
+        <li><button name="sort" type="submit" class="btn btn-default btn-lg" value="votes">
           <span class="glyphicon glyphicon-bullhorn"></span> Popular</button> </li>
-        <li><button name="sort" type="submit" class="btn btn-default" value="date">
+        <li><button name="sort" type="submit" class="btn btn-default btn-lg" value="date">
           <span class="glyphicon glyphicon-time"></span> New </button> </li>
       </ul>
     </form>
   </div>
 
-  <div class="col-md-2 col-md-offset-3">
+  <div class="col-md-2 col-md-offset-2">
     <form action="/posts/new" method="new" class="new-post">
       <div class="btn-group btn-group-md" id="create-post-button">
-        <button type="submit" class="btn btn-default">Add a post</button>
+        <button type="submit" class="btn btn-default btn-lg">Add a post</button>
       </div>
     </form>
   </div>
 
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-9 col-md-offset-1">
     <hr class="style-four">
   </div>
 </div>
@@ -43,7 +43,7 @@
         </span>
       </div>
 
-      <div class="col-md-7 col-md-offset-1", style="padding-left: 0px;">
+      <div class="col-md-6 col-md-offset-1", style="padding-left: 0px;">
         <p class="post-title">
           <% if post.url? %>
             <a href= "<%= post.url %>", style="color:#585858;" >
@@ -90,7 +90,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-9 col-md-offset-1">
     <hr class="style-four">
   </div>
 </div>
