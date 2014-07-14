@@ -1,9 +1,25 @@
 <h5><%= link_to 'Back to The Front Page', :posts %></h5>
-
-<%= image_tag @post.image_url, size: '300x300' if @post.image? %>
-<p><%= @post.title %></p>
-<p><%= @post.description %></p>
-<p>by: <%= @post.user.username %> on: <%= @post.created_at.to_s[0..10] %></p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <p class="post-title-show"><%= @post.title %></p>
+    <br>
+    <%= image_tag @post.image_url, size: '300x300' if @post.image? %>
+    <br>
+    <br>
+  </div>
+  <div class="col-md-6 col-md-offset-1" style="background-color:#FCF8E3; border-radius:10px;">
+    <p class="post-info-show"><%= @post.description %></p>
+  </div>
+  <div class="col-md-6 col-md-offset-1">
+    <p class="post-info-show">by:
+      <a href="/users/<%= @post.user.id %>">
+        <%= @post.user.username %>
+      </a>
+      | <%= time_ago_in_words(@post.created_at) %> ago
+      | votes: <%= @post.score %>
+    </p>
+  </div>
+</div>
 
 <% if session[:user_id] == @post.user_id %>
   <div>
@@ -12,39 +28,53 @@
   </div>
 <% end %>
 
-<h3>Comments:</h3>
+<hr class="style-four">
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <h3>Comments:</h3>
+  </div>
+</div>
+
 <% @comments.each do |comment| %>
   <div class="row">
-    <div class="col-md-7">
-      <p><%= comment.description %></p>
-      <p>
-        by:
-        <a href="/users/<%= comment.user.id %>">
-          <%= comment.user.username %>
-        </a>
-        | <%= time_ago_in_words(comment.created_at) %> ago
-        | votes: <%= comment.score %>
-      </p>
+    <div class="col-md-6 col-md-offset-1" style="background-color:#FCF8E3; border-radius:10px;">
+      <p class="post-info-show"><%= comment.description %></p>
+    </div>
+    <div class="col-md-3">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "",
+          comment_votes_path(comment, value: 1, votable_id: comment.id, votable_type: comment.class), method: :post, class: "fa fa-thumbs-o-up fa-2x", id: "upvote" %>
+        </li>
+
+        <li><%= link_to "",
+          comment_votes_path(comment, value: -1, votable_id: comment.id, votable_type: comment.class), method: :post, class: "fa fa-thumbs-o-down fa-2x", id: "downvote" %>
+        </li>
+      </ul>
     </div>
 
-    <ul class="nav navbar-nav">
-      <li><%= link_to "",
-        comment_votes_path(comment, value: 1, votable_id: comment.id, votable_type: comment.class),
-        method: :new, class: "fa fa-thumbs-o-up fa-2x" %>
-      </li>
-
-      <li><%= link_to "",
-        comment_votes_path(comment, value: -1, votable_id: comment.id, votable_type: comment.class),
-        method: :new, class: "fa fa-thumbs-o-down fa-2x" %>
-      </li>
-    </ul>
   </div>
+  <div class="col-md-6 col-md-offset-1">
+    <p class="comment-info-show">by:
+      <a href="/users/<%= comment.user.id %>">
+        <%= comment.user.username %>
+      </a>
+      | <%= time_ago_in_words(comment.created_at) %> ago
+      | votes: <%= comment.score %>
+    </p>
+  </div>
+  <br>
+  <br>
 <% end %>
 
-<h3>Comment on this post:</h3>
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_area :description %><br>
-  <%= f.submit 'Comment' %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <h3>Comment on this post:</h3>
+    <%= form_for [@post, @comment] do |f| %>
+      <%= f.text_area :description %><br>
+      <%= f.submit 'Comment' %>
+    <% end %>
+  </div>
+</div>
 <br>
 <br>

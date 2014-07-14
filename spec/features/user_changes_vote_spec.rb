@@ -10,13 +10,13 @@ feature 'user can change their vote on comments and posts', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Downvote"
+    click_on "downvote"
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
     expect(post.score_count).to eq(-1)
 
-    click_on "Upvote"
+    click_on "upvote"
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"
@@ -29,13 +29,13 @@ feature 'user can change their vote on comments and posts', %Q{
     visit "/auth/twitter"
     visit "posts/#{comment.post.id}"
 
-    click_on "Downvote"
+    click_on "downvote"
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
     expect(comment.score_count).to eq(-1)
 
-    click_on "Upvote"
+    click_on "upvote"
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"

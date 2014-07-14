@@ -9,16 +9,19 @@ feature 'user can add a post to barnettit', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Create a post!"
+    click_on "Add a post"
 
     click_on "text"
-    fill_in "Title", with: "super duper test post"
-    fill_in "Description", with: "description of super duper test post"
-    click_on "Create Post"
+    fill_in "text-title", with: "super duper test post"
+    fill_in "text-description", with: "description of super duper test post"
+    click_on "text-submit-btn"
 
     expect(page).to have_content "super duper test post"
+
+    click_on "super duper test post"
+
     expect(page).to have_content "description of"
-    expect(post.count).to eq(1)
+    expect(Post.count).to eq(1)
   end
 
   scenario 'user can add a link post' do
@@ -26,15 +29,15 @@ feature 'user can add a post to barnettit', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Create a post!"
+    click_on "Add a post"
 
     click_on "link"
-    fill_in "Title", with: "super duper link test post"
-    fill_in "Link", with: "http://en.wikipedia.org/wiki/Warhammer_40,000:_Dawn_of_War"
-    click_on "Create Post"
+    fill_in "link-title", with: "super duper link test post"
+    fill_in "Url", with: "http://en.wikipedia.org/wiki/Warhammer_40,000:_Dawn_of_War"
+    click_on "link-submit-btn"
 
     expect(page).to have_content "super duper link test post"
-    expect(post.count).to eq(1)
+    expect(Post.count).to eq(1)
   end
 
   scenario 'user can upload an image post' do
@@ -42,15 +45,15 @@ feature 'user can add a post to barnettit', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Create a post!"
+    click_on "Add a post"
 
-    click_on "text"
-    fill_in "Title", with: "super duper image test post"
-    #select image to upload
-    click_on "Create Post"
+    click_on "photo"
+    fill_in "photo-title", with: "super duper image test post"
+    page.attach_file("Image", "#{Rails.root}/app/assets/images/LA_logo.jpg")
+    click_on "photo-submit-btn"
 
     expect(page).to have_content "super duper image test post"
-    #expect to find image
-    expect(post.count).to eq(1)
+    expect(Post.first.image).to be_truthy
+    expect(Post.count).to eq(1)
   end
 end

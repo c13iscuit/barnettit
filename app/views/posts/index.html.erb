@@ -47,12 +47,12 @@
         <p class="post-title">
           <% if post.url? %>
             <a href= "<%= post.url %>", style="color:#585858;" >
-              <%= post.title[0..34] %> <% if post.title.length > 35 %>... <% end %>
+              <%= post.title[0..39] %> <% if post.title.length > 40 %>... <% end %>
             </a>
             <span class="glyphicon glyphicon-share"></span>
           <% else %>
             <a href= "posts/<%=post.id%>", style="color:#585858;">
-              <%= post.title[0..34] %> <% if post.title.length > 35 %>... <% end %>
+              <%= post.title[0..39] %> <% if post.title.length > 40 %>... <% end %>
             </a>
           <% end %>
         </p>
@@ -73,13 +73,14 @@
       <div class="col-md-3">
         <ul class="nav navbar-nav">
           <li><%= link_to "",
-            post_votes_path(post, value: 1, votable_id: post.id, votable_type: post.class),
-            method: :new, class: "fa fa-thumbs-o-up fa-2x", style: "color:#666699;" %>
+            post_votes_path(post, value: 1, votable_id: post.id, votable_type: post.class), method: :post, class: "fa fa-thumbs-o-up fa-2x", id: "upvote",
+            style: "color:#666699;" %>
           </li>
 
           <li><%= link_to "",
             post_votes_path(post, value: -1, votable_id: post.id, votable_type: post.class),
-            method: :new, class: "fa fa-thumbs-o-down fa-2x", style: "color:#666699;" %>
+            method: :post, class: "fa fa-thumbs-o-down fa-2x", id: "downvote",
+            style: "color:#666699;" %>
           </li>
         </ul>
       </div>

@@ -26,6 +26,7 @@ gem 'bootstrap-kaminari-views'
 
 group :test, :development do
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'

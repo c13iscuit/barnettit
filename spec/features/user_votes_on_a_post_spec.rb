@@ -10,7 +10,7 @@ feature 'user can vote on posts', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Upvote"
+    click_on "upvote"
 
     expect(page).to have_content "votes: 1"
     expect(page).to have_content "Successfully voted!"
@@ -22,8 +22,8 @@ feature 'user can vote on posts', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Upvote"
-    click_on "Upvote"
+    click_on "upvote"
+    click_on "upvote"
 
     expect(page).to have_content "votes: 1"
     expect(post.score_count).to eq(1)
@@ -34,7 +34,7 @@ feature 'user can vote on posts', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Downvote"
+    click_on "downvote"
 
     expect(page).to have_content "votes: -1"
     expect(page).to have_content "Successfully voted!"
@@ -46,8 +46,8 @@ feature 'user can vote on posts', %Q{
 
     visit "/auth/twitter"
 
-    click_on "Downvote"
-    click_on "Downvote"
+    click_on "downvote"
+    click_on "downvote"
 
     expect(page).to have_content "votes: -1"
     expect(post.score_count).to eq(-1)

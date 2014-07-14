@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @posts = Post.order(created_at: :desc).page(params[:page]).per(6)
     elsif params[:sort] == 'hot'
       @posts = Post.order('score desc', created_at: :desc).page(params[:page]).per(6)
-    else params[:sort] == 'hot'
+    else
       @posts = Post.order('score desc', created_at: :desc).page(params[:page]).per(6)
     end
   end
