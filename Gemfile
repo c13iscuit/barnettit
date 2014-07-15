@@ -25,6 +25,10 @@ gem 'bootstrap_form'
 gem 'bootstrap-kaminari-views'
 gem 'json'
 gem 'nokogiri'
+gem 'sidekiq'
+gem 'sidetiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 group :test, :development do
   gem 'capybara'

@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_many :votes, as: :votable
 
   validates_presence_of :title
+  validates :url, uniqueness: true, if: 'url.present?'
 
   mount_uploader :image, ImageUploader
 
