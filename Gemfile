@@ -23,6 +23,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'bootstrap_form'
 gem 'bootstrap-kaminari-views'
+gem 'json'
+gem 'nokogiri'
+
+gem 'coveralls', require: false, group: :test
 
 group :test, :development do
   gem 'capybara'
