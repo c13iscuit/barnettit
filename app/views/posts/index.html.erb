@@ -27,16 +27,6 @@
   </div>
 </div>
 
-<% top = @NYTresult["results"].take(3)
-   top.each do |article| %>
-    <p><%= article["title"] %></p>
-<% end %>
-
-<% top = @WSJresult["Headlines"].take(3)
-   top.each do |article| %>
-    <p><%= article["Headline"] %></p>
-<% end %>
-
 <% @posts.each do |post| %>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">

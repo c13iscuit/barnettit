@@ -26,8 +26,6 @@ gem 'bootstrap-kaminari-views'
 gem 'json'
 gem 'nokogiri'
 
-gem 'coveralls', require: false, group: :test
-
 group :test, :development do
   gem 'capybara'
   gem 'capybara-webkit'
@@ -38,4 +36,5 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'valid_attribute'
   gem 'dotenv-rails'
+  gem 'coveralls', require: false
 end

@@ -4,14 +4,6 @@ class PostsController < ApplicationController
   before_action :authorize_user, only: [:create]
 
   def index
-    uri = URI("http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/1.json?api-key=#{ENV["NYT"]}")
-    response = Net::HTTP.get(uri)
-    @NYTresult = JSON.parse(response)
-
-    uri = URI("http://betawebapi.dowjones.com/fintech/articles/api/v1/source/424/?count=3")
-    response = Net::HTTP.get(uri)
-    @WSJresult = JSON.parse(response)
-
     if params[:sort] == 'votes'
       @posts = Post.order('score desc').page(params[:page]).per(6)
     elsif params[:sort] == 'date'
