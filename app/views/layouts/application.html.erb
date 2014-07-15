@@ -21,7 +21,11 @@
         <ul class="nav navbar-nav">
           <% if current_user %>
             <li id="user-portrait">
-            <%= image_tag "user_default_thumb.png", size: '90x90'%></li>
+              <% if current_user.provider == "facebook" || "twitter"%>
+                <%= image_tag current_user.avatar, size: "90x90" %></li>
+              <% else %>
+                <%= image_tag "user_default_thumb.png", size: "90x90" %></li>
+              <% end %>
             <li><%= link_to current_user.username,
               user_path(session[:user_id]), id: "username" %></li>
             <p id = "signout"><a href = "/signout" id="signout-link">(signout)</a></p>

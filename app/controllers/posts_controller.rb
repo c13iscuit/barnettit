@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(post_id: params[:id])
+    @comments = Comment.where(post_id: params[:id]).order('score desc', created_at: :desc)
     @vote = Vote.new
   end
 

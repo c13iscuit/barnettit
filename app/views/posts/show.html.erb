@@ -15,7 +15,7 @@
   <div class="col-md-6 col-md-offset-1">
     <p class="post-info-show">by:
       <a href="/users/<%= @post.user.id %>">
-        <%= @post.user.username %>
+        anonymous
       </a>
       | <%= time_ago_in_words(@post.created_at) %> ago
       | votes: <%= @post.score %>
@@ -75,7 +75,7 @@
     <div class="col-md-6 col-md-offset-1">
       <p class="comment-info-show">by:
         <a href="/users/<%= comment.user.id %>">
-          <%= comment.user.username %>
+          anonymous
         </a>
         | <%= time_ago_in_words(comment.created_at) %> ago
         | votes: <%= comment.score %>

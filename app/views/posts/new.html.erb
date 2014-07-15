@@ -15,7 +15,7 @@
 
 <div class="row">
   <div class="col-md-5 col-md-offset-2">
-    <h3>Add a post:</h3>
+    <h3 class="post-info-show" style="font-size: 30px;">Add a post:</h3>
   </div>
 </div>
 
@@ -28,7 +28,8 @@
         <%= bootstrap_form_for @post do |f|%>
           <%= f.text_field :title, id: "text-title" %><br>
           <%= f.text_area :description, id: "text-description" %><br>
-          <%= f.submit "Create a Post", class: "text-submit", id: "text-submit-btn" %>
+          <%= f.submit "Create a Post", class: "btn btn-default btn-lg",
+              id: "text-submit-btn" %>
         <% end %>
       </div>
     </div>
@@ -40,7 +41,8 @@
         <%= bootstrap_form_for @post do |f|%>
           <%= f.text_field :title, id: "link-title" %><br>
           <%= f.text_field :url %><br>
-          <%= f.submit "Create a Post", class: "link-submit", id: "link-submit-btn" %>
+          <%= f.submit "Create a Post", class: "btn btn-default btn-lg",
+              id: "link-submit-btn" %>
         <% end %>
       </div>
     </div>
@@ -53,7 +55,7 @@
           <%= f.text_field :title, id: "photo-title" %><br>
           <%= f.text_area :description, id: "photo-description" %><br>
           <%= f.file_field :image %><br>
-          <%= f.submit "Create a Post", class: "photo-submit", id: "photo-submit-btn"%>
+          <%= f.submit "Create a Post", class: "btn btn-default btn-lg", id: "photo-submit-btn"%>
         <% end %>
       </div>
     </div>
