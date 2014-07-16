@@ -34,6 +34,7 @@ gem 'coveralls', require: false
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'foreman'
+gem 'http-cookie'
 
 group :test, :development do
   gem 'capybara'

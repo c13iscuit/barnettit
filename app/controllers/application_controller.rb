@@ -1,8 +1,11 @@
+require 'importio.rb'
+
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :params_with_uid
+  helper_method :import_io_call
 
   def params_with_uid(object)
     object.merge!(user_id: session[:user_id])
