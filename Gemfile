@@ -29,6 +29,7 @@ gem 'sidekiq'
 gem 'sidetiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'redis'
 gem 'coveralls', require: false
 
 group :test, :development do
