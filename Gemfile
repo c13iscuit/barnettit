@@ -31,6 +31,9 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'redis'
 gem 'coveralls', require: false
+gem 'unicorn'
+gem 'unicorn-rails'
+gem 'foreman'
 
 group :test, :development do
   gem 'capybara'
