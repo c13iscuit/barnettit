@@ -49,8 +49,8 @@
         <p class="post-title">
           <% if post.url? %>
             <a href= "<%= post.url %>", style="color:#585858;" >
-              <% if post.title.length > 36 %>
-                <%= post.title[0..35] + "..." %>
+              <% if post.title.length > 50 %>
+                <%= post.title[0..49] + "..." %>
               <% else %>
                 <%= post.title %>
               <% end %>
@@ -58,8 +58,8 @@
             <span class="glyphicon glyphicon-share"></span>
           <% else %>
             <a href= "posts/<%=post.id%>", style="color:#585858;">
-              <% if post.title.length > 36 %>
-                <%= post.title[0..35] + "..." %>
+              <% if post.title.length > 50 %>
+                <%= post.title[0..49] + "..." %>
               <% else %>
                 <%= post.title %>
               <% end %>

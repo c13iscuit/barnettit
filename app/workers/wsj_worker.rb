@@ -12,7 +12,8 @@ class WsjWorker
     result = JSON.parse(response)
     top = result["Headlines"].take(3)
     top.each do |article|
-      Post.create(title: article["Headline"], url: article["ExternalLink"], user_id: 8)
+      post = Post.new(title: article["Headline"], url: article["ExternalLink"], user_id: 8)
+      post.save
     end
   end
 end

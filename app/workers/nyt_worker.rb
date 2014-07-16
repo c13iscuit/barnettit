@@ -12,7 +12,8 @@ class NytWorker
     result = JSON.parse(response)
     top = result["results"].take(3)
     top.each do |article|
-      Post.create(title: article["title"], url: article["url"], user_id: 8)
+      post = Post.new(title: article["title"], url: article["url"], user_id: 8)
+      post.save
     end
   end
 end

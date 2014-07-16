@@ -29,6 +29,7 @@ gem 'sidekiq'
 gem 'sidetiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'coveralls', require: false
 
 group :test, :development do
   gem 'capybara'
@@ -40,5 +41,4 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'valid_attribute'
   gem 'dotenv-rails'
-  gem 'coveralls', require: false
 end
