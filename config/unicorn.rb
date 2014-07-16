@@ -8,6 +8,8 @@ before_fork do |server, worker|
     Process.kill 'QUIT', Process.pid
   end
 
+  @sidekiq_pid ||= spawn("bundle exec sidekiq -c 2")
+
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.connection.disconnect!
 end

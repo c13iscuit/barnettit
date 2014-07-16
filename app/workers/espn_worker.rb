@@ -7,7 +7,7 @@ class EspnWorker
   end
 
   def perform
-    uri = URI("http://api.espn.com/v1/sports/news/headlines/top?apikey=#{ESPN_KEY}")
+    uri = URI("http://api.espn.com/v1/sports/news/headlines/top?apikey=#{ENV["ESPN_KEY"]}")
     response = Net::HTTP.get(uri)
     result = JSON.parse(response)
     top = result["headlines"].take(3)
