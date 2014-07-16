@@ -1,4 +1,4 @@
-class CrackedWorker
+class ChiveWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
 
@@ -31,7 +31,7 @@ class CrackedWorker
       end
     end
 
-    client.query({"input"=>{"webpage/url"=>"http://www.cracked.com/"},"connectorGuids"=>["1926bc09-ba86-474d-8692-4a86744c0cc2"]}, callback )
+    client.query({"input"=>{"webpage/url"=>"http://thechive.com/"},"connectorGuids"=>["8536e9e2-50f7-40a8-a872-738dc7729715"]}, callback )
 
     puts "Queries dispatched, now waiting for results"
 
@@ -41,9 +41,12 @@ class CrackedWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8)
-    post.save
-    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8)
-    post1.save
+    # top = data_rows[0].take(4)
+    # top.each do
+      post = Post.new(title: data_rows[0][0]["thechive/_text"].gsub('\n',''), url: data_rows[0][]["thechive"], user_id: 8)
+      post.save
+      post1 = Post.new(title: data_rows[0][1]["thechive/_text"].gsub('\n',''), url: data_rows[0][1]["thechive"], user_id: 8)
+      post1.save
+    # end
   end
 end
