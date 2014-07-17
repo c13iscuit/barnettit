@@ -3,7 +3,7 @@ class ChiveWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    hourly(3)
+    hourly(2)
   end
 
   def perform

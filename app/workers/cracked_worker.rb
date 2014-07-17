@@ -3,7 +3,7 @@ class CrackedWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    hourly(3)
+    hourly(5)
   end
 
   def perform

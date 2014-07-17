@@ -10,7 +10,7 @@ class NytWorker
     uri = URI("http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/1.json?api-key=#{ENV["NYT"]}")
     response = Net::HTTP.get(uri)
     result = JSON.parse(response)
-    top = result["results"].take(3)
+    top = result["results"].take(2)
     top.each do |article|
       post = Post.new(title: article["title"], url: article["url"], user_id: 8)
       post.save
