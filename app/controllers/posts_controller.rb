@@ -1,6 +1,3 @@
-require "net/http"
-require 'open-uri'
-
 class PostsController < ApplicationController
   before_action :authorize_user, only: [:create]
 
@@ -10,9 +7,9 @@ class PostsController < ApplicationController
     elsif params[:sort] == 'date'
       @posts = Post.order(created_at: :desc).page(params[:page]).per(15)
     elsif params[:sort] == 'hot'
-      @posts = Post.order('score desc', created_at: :desc).page(params[:page]).per(15)
+      @posts = Post.order( created_at: :desc, score: :desc).page(params[:page]).per(15)
     else
-      @posts = Post.order('score desc', created_at: :desc).page(params[:page]).per(15)
+      @posts = Post.order(created_at: :desc, score: :desc).page(params[:page]).per(15)
     end
   end
 

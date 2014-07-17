@@ -41,12 +41,9 @@ class ChiveWorker
 
     client.disconnect
 
-    # top = data_rows[0].take(4)
-    # top.each do
-      post = Post.new(title: data_rows[0][0]["thechive/_text"].gsub('\n',''), url: data_rows[0][]["thechive"], user_id: 8)
-      post.save
-      post1 = Post.new(title: data_rows[0][1]["thechive/_text"].gsub('\n',''), url: data_rows[0][1]["thechive"], user_id: 8)
-      post1.save
-    # end
+    post = Post.new(title: data_rows[0][0]["thechive/_text"].gsub("\t",''), url: data_rows[0][0]["thechive"], user_id: 8)
+    post.save
+    post1 = Post.new(title: data_rows[0][1]["thechive/_text"].gsub("\t",''), url: data_rows[0][1]["thechive"], user_id: 8)
+    post1.save
   end
 end

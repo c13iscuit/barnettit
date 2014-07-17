@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.0.0
 before_script:
-  - psql -c 'create database barnettit_test;' -U pgsql
+  - psql -c 'create database barnettit_test;' -U postgres
