@@ -7,7 +7,7 @@ class ChiveWorker
   end
 
   def perform
-    client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9","Tt4ddzcUp6LNFIjxpODUUZFlYCwEqL0RQ4VYrae6qtolYpx1Jv5VLtnL53gAovuwNce4shSEXRyH5t7ovAocJQ==")
+    client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9", ENV["IMPORTIO_KEY"])
     client.connect
 
     data_rows = []
@@ -41,9 +41,14 @@ class ChiveWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["thechive/_text"].gsub("\t",''), url: data_rows[0][0]["thechive"], user_id: 8)
-    post.save
-    post1 = Post.new(title: data_rows[0][1]["thechive/_text"].gsub("\t",''), url: data_rows[0][1]["thechive"], user_id: 8)
-    post1.save
+    position = 0
+    counter = 0
+    while counter < 2 && position < data_rows.length
+      post = Post.new(title: data_rows[0][position]["thechive/_text"].gsub("\t",''), url: data_rows[0][position]["thechive"], user_id: 8)
+      if post.save
+        counter += 1
+      end
+      position += 1
+    end
   end
 end

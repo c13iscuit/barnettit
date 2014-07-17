@@ -7,7 +7,7 @@ class CrackedWorker
   end
 
   def perform
-    client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9","Tt4ddzcUp6LNFIjxpODUUZFlYCwEqL0RQ4VYrae6qtolYpx1Jv5VLtnL53gAovuwNce4shSEXRyH5t7ovAocJQ==")
+    client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9", ENV["IMPORTIO_KEY"])
     client.connect
 
     data_rows = []
