@@ -14,30 +14,30 @@ class ChiveWorker
 
     callback = lambda do |query, message|
       if message["type"] == "DISCONNECT"
-        puts "The query was cancelled as the client was disconnected"
+        logger.error "The query was cancelled as the client was disconnected"
       end
       if message["type"] == "MESSAGE"
         if message["data"].key?("errorType")
-          puts "Got an error!"
+          logger.error "Got an error!"
           puts JSON.pretty_generate(message["data"])
         else
-          puts "Got data!"
+          logger.info "Got data!"
           puts JSON.pretty_generate(message["data"])
           data_rows << message["data"]["results"]
         end
       end
       if query.finished
-        puts "Query finished"
+        logger.info "Query finished"
       end
     end
 
     client.query({"input"=>{"webpage/url"=>"http://thechive.com/"},"connectorGuids"=>["8536e9e2-50f7-40a8-a872-738dc7729715"]}, callback )
 
-    puts "Queries dispatched, now waiting for results"
+    logger.info "Queries dispatched, now waiting for results"
 
     client.join
 
-    puts "Join completed, all results returned"
+    logger.info "Join completed, all results returned"
 
     client.disconnect
 

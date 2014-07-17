@@ -6,15 +6,14 @@ class User < ActiveRecord::Base
         user.provider = auth['provider']
         user.uid = auth['uid']
         user.username = auth['info']['name']
-        user.avatar = auth['info']['image']
+        # user.avatar = auth['info']['image']
       end
     else
-      binding.pry
       create! do |user|
         user.provider = auth['provider']
         user.uid = auth['uid']
         user.username = auth['info']['name']
-        user.avatar = "https://graph.facebook.com/#{auth["uid"]}/picture?type=normal"
+        # user.avatar = "https://graph.facebook.com/#{auth["uid"]}/picture?type=normal"
       end
     end
   end
