@@ -41,9 +41,9 @@ class CrackedWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8)
+    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8, source: "cracked", avatar: "cracked_logo.png")
     post.save
-    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8)
+    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8, source: "cracked", avatar: "cracked_logo.png")
     post1.save
   end
 end

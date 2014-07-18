@@ -34,9 +34,11 @@
         <span class="post-image">
           <%= image_tag post.image_url,
             size: '60x60' if post.image? %>
+          <%= image_tag post.avatar,
+            size: '60x60' if post.avatar? %>
           <%= image_tag "default_no_image_for_post.png",
             size: '60x60' if !post.image? && post.url &&
-            !post.url.match(/jpg|tif|gif|png/i) %>
+            !post.url.match(/jpg|tif|gif|png/i) && !post.avatar? %>
           <%= image_tag "default_no_image_for_post.png",
             size: '60x60' if !post.image? && !post.url? %>
           <%= image_tag post.url,
