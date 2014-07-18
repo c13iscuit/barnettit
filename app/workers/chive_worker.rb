@@ -43,7 +43,7 @@ class ChiveWorker
 
     position = 0
     counter = 0
-    while counter < 2 && position < data_rows.length
+    while counter < 2 && position < data_rows[0].length
       post = Post.new(title: data_rows[0][position]["thechive/_text"].gsub("\t",''), url: data_rows[0][position]["thechive"], user_id: 8)
       if post.save
         counter += 1
