@@ -3,7 +3,7 @@ class NewsWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    hourly(4)
+    hourly(3)
   end
 
   def perform
