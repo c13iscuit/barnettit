@@ -41,9 +41,9 @@ class FunWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8, source_id: 2, avatar: "cracked_logo.png")
+    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8, source_id: 4, avatar: "cracked_logo.png")
     post.save
-    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8, source_id: 2, avatar: "cracked_logo.png")
+    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8, source_id: 4, avatar: "cracked_logo.png")
     post1.save
 
     client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9", ENV["IMPORTIO_KEY"])
@@ -80,9 +80,9 @@ class FunWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][0]["buzzfeed"], user_id: 8, source_id: 6, avatar: "buzzfeed_logo.jpg")
+    post = Post.new(title: data_rows[0][0]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][0]["buzzfeed"], user_id: 8, source_id: 5, avatar: "buzzfeed_logo.jpg")
     post.save
-    post = Post.new(title: data_rows[0][1]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][1]["buzzfeed"], user_id: 8, source_id: 6, avatar: "buzzfeed_logo.jpg")
+    post = Post.new(title: data_rows[0][1]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][1]["buzzfeed"], user_id: 8, source_id: 5, avatar: "buzzfeed_logo.jpg")
     post.save
   end
 end

@@ -41,9 +41,9 @@ class ChiveWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["thechive/_text"].gsub("\t",''), url: data_rows[0][0]["thechive"], user_id: 8, source_id: 1, avatar: "chive_logo.jpg")
+    post = Post.new(title: data_rows[0][0]["thechive/_text"].gsub("\t",''), url: data_rows[0][0]["thechive"], user_id: 8, source_id: 2, avatar: "chive_logo.jpg")
     post.save
-    post = Post.new(title: data_rows[0][1]["thechive/_text"].gsub("\t",''), url: data_rows[0][1]["thechive"], user_id: 8, source_id: 1, avatar: "chive_logo.jpg")
+    post = Post.new(title: data_rows[0][1]["thechive/_text"].gsub("\t",''), url: data_rows[0][1]["thechive"], user_id: 8, source_id: 2, avatar: "chive_logo.jpg")
     post.save
 
     client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9", ENV["IMPORTIO_KEY"])
@@ -80,9 +80,9 @@ class ChiveWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["trailers/_title"].gsub("\t",''), url: data_rows[0][0]["trailers"], user_id: 8, source_id: 7, avatar: "trailer_logo.png")
+    post = Post.new(title: data_rows[0][0]["trailers/_title"].gsub("\t",''), url: data_rows[0][0]["trailers"], user_id: 8, source_id: 3, avatar: "trailer_logo.jpg")
     post.save
-    post = Post.new(title: data_rows[0][1]["trailers/_title"].gsub("\t",''), url: data_rows[0][1]["trailers"], user_id: 8, source_id: 7, avatar: "trailer_logo.png")
+    post = Post.new(title: data_rows[0][1]["trailers/_title"].gsub("\t",''), url: data_rows[0][1]["trailers"], user_id: 8, source_id: 3, avatar: "trailer_logo.jpg")
     post.save
   end
 end

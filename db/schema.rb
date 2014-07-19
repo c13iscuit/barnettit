@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140719173107) do
     t.string   "url"
     t.integer  "score",       default: 0
     t.string   "avatar"
-    t.integer  "source_id"
+    t.integer  "source_id",   default: 8
   end
 
   create_table "sources", force: true do |t|
