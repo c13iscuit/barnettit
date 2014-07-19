@@ -3,7 +3,7 @@ class NewsWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    hourly(3)
+    hourly(4)
   end
 
   def perform
@@ -12,7 +12,7 @@ class NewsWorker
     result = JSON.parse(response)
     top = result["results"].take(1)
     top.each do |article|
-      post = Post.new(title: article["title"], url: article["url"], user_id: 8, source: "nyt", avatar: "nyt_logo.jpg")
+      post = Post.new(title: article["title"], url: article["url"], user_id: 8, source_id: 5, avatar: "nyt_logo.jpg")
       post.save
     end
 
@@ -21,7 +21,7 @@ class NewsWorker
     result = JSON.parse(response)
     top = result["Headlines"].take(1)
     top.each do |article|
-      post = Post.new(title: article["Headline"], url: article["ExternalLink"], user_id: 8, source: "wsj", avatar: "wsj_logo.gif")
+      post = Post.new(title: article["Headline"], url: article["ExternalLink"], user_id: 8, source_id: 4, avatar: "wsj_logo.gif")
       post.save
     end
 
@@ -30,7 +30,7 @@ class NewsWorker
     result = JSON.parse(response)
     top = result["headlines"].take(1)
     top.each do |article|
-      post = Post.new(title: article["headline"], url: article["links"]["web"]["href"], user_id: 8, source: "espn", avatar: "espn_logo.jpg")
+      post = Post.new(title: article["headline"], url: article["links"]["web"]["href"], user_id: 8, source_id: 3, avatar: "espn_logo.jpg")
       post.save
     end
   end

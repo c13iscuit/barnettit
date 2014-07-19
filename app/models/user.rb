@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :posts
+  has_many :comments
+  has_many :votes
+  has_many :subscriptions
+
+  validates_uniqueness_of :uid, scope: :provider
+  validates_presence_of :username
 
   def self.create_with_omniauth(auth)
     if auth["provider"] == "twitter"
@@ -14,15 +21,7 @@ class User < ActiveRecord::Base
         user.uid = auth['uid']
         user.username = auth['info']['name']
         user.avatar = auth[:info][:image]
-        # user.avatar = "https://graph.facebook.com/#{auth["uid"]}/picture?type=normal"
       end
     end
   end
-
-  has_many :posts
-  has_many :comments
-  has_many :votes
-
-  validates_uniqueness_of :uid, scope: :provider
-  validates_presence_of :username
 end

@@ -3,7 +3,7 @@ class FunWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    hourly(4)
+    hourly(3)
   end
 
   def perform
@@ -41,9 +41,9 @@ class FunWorker
 
     client.disconnect
 
-    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8, source: "cracked", avatar: "cracked_logo.png")
+    post = Post.new(title: data_rows[0][0]["article_link/_text"], url: data_rows[0][0]["article_link"], user_id: 8, source_id: 2, avatar: "cracked_logo.png")
     post.save
-    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8, source: "cracked", avatar: "cracked_logo.png")
+    post1 = Post.new(title: data_rows[0][1]["article_link/_text"], url: data_rows[0][1]["article_link"], user_id: 8, source_id: 2, avatar: "cracked_logo.png")
     post1.save
 
     client = Importio::new("faee0006-f55e-41ed-b774-f968b8654dc9", ENV["IMPORTIO_KEY"])
@@ -80,14 +80,9 @@ class FunWorker
 
     client.disconnect
 
-    position = 0
-    counter = 0
-    while counter < 2 && position < data_rows[0].length
-      post = Post.new(title: data_rows[0][position]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][position]["buzzfeed"], user_id: 8, source: "buzzfeed", avatar: "buzzfeed_logo.jpg")
-      if post.save
-        counter += 1
-      end
-      position += 1
-    end
+    post = Post.new(title: data_rows[0][0]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][0]["buzzfeed"], user_id: 8, source_id: 6, avatar: "buzzfeed_logo.jpg")
+    post.save
+    post = Post.new(title: data_rows[0][1]["buzzfeed/_text"].gsub("\t",''), url: data_rows[0][1]["buzzfeed"], user_id: 8, source_id: 6, avatar: "buzzfeed_logo.jpg")
+    post.save
   end
 end
