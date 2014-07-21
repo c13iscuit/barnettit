@@ -24,4 +24,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def subscribe_all
+    Source.all.each do |s|
+      Subscription.create(user_id: User.last.id, source_id: s.id)
+    end
+  end
 end
