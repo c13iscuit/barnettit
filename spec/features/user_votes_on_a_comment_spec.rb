@@ -7,7 +7,6 @@ feature 'user can vote on comments', %Q{
 
   scenario 'user can upvote a comment' do
     comment = FactoryGirl.create(:comment)
-    source = FactoryGirl.create(:source, id: 8)
     sub = FactoryGirl.create(:subscription, user_id: comment.user.id)
 
 
@@ -23,7 +22,6 @@ feature 'user can vote on comments', %Q{
 
   scenario 'user can upvote a comment only once' do
     comment = FactoryGirl.create(:comment)
-    source = FactoryGirl.create(:source, id: 8)
     sub = FactoryGirl.create(:subscription, user_id: comment.user.id)
 
     visit "/auth/twitter"
@@ -38,7 +36,6 @@ feature 'user can vote on comments', %Q{
 
   scenario 'user can downvote a comment' do
     comment = FactoryGirl.create(:comment)
-    source = FactoryGirl.create(:source, id: 8)
     sub = FactoryGirl.create(:subscription, user_id: comment.user.id)
 
     visit "/auth/twitter"
@@ -53,7 +50,6 @@ feature 'user can vote on comments', %Q{
 
   scenario 'user can downvote a comment only once' do
     comment = FactoryGirl.create(:comment)
-    source = FactoryGirl.create(:source, id: 8)
     sub = FactoryGirl.create(:subscription, user_id: comment.user.id)
 
     visit "/auth/twitter"
