@@ -10,8 +10,6 @@ describe Post do
 
   it { should have_valid(:description).when("Spacecats rule", "RTFM") }
 
-  it { should validate_uniqueness_of(:url) }
-
   describe "#score" do
     it "should total the votes" do
       vote = FactoryGirl.create(:post_vote)

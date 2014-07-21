@@ -7,6 +7,8 @@ feature 'user can change their vote on comments and posts', %Q{
 
   scenario 'user can change their vote on a post' do
     post = FactoryGirl.create(:post)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: post.user.id)
 
     visit "/auth/twitter"
 
@@ -25,6 +27,8 @@ feature 'user can change their vote on comments and posts', %Q{
 
   scenario 'user can change their vote on a comment' do
     comment = FactoryGirl.create(:comment)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: comment.user.id)
 
     visit "/auth/twitter"
     visit "posts/#{comment.post.id}"

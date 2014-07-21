@@ -6,6 +6,8 @@ feature 'user can add a post to barnettit', %Q{
 
   scenario 'user can add a text post' do
     user = FactoryGirl.create(:user)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: user.id)
 
     visit "/auth/twitter"
 
@@ -26,6 +28,8 @@ feature 'user can add a post to barnettit', %Q{
 
   scenario 'user can add a link post' do
     user = FactoryGirl.create(:user)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: user.id)
 
     visit "/auth/twitter"
 
@@ -42,6 +46,8 @@ feature 'user can add a post to barnettit', %Q{
 
   scenario 'user can upload an image post' do
     user = FactoryGirl.create(:user)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: user.id)
 
     visit "/auth/twitter"
 
@@ -49,7 +55,7 @@ feature 'user can add a post to barnettit', %Q{
 
     click_on "photo"
     fill_in "photo-title", with: "super duper image test post"
-    page.attach_file("Image", "#{Rails.root}/app/assets/images/LA_logo.jpg")
+    page.attach_file("Image", "#{Rails.root}/app/assets/images/LA_logo.png")
     click_on "photo-submit-btn"
 
     expect(page).to have_content "super duper image test post"

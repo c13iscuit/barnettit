@@ -7,6 +7,8 @@ feature 'user can vote on posts', %Q{
 
   scenario 'user can upvote a post' do
     post = FactoryGirl.create(:post)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: post.user.id)
 
     visit "/auth/twitter"
 
@@ -19,6 +21,8 @@ feature 'user can vote on posts', %Q{
 
   scenario 'user can upvote a post only once' do
     post = FactoryGirl.create(:post)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: post.user.id)
 
     visit "/auth/twitter"
 
@@ -31,6 +35,8 @@ feature 'user can vote on posts', %Q{
 
   scenario 'user can downvote a post' do
     post = FactoryGirl.create(:post)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: post.user.id)
 
     visit "/auth/twitter"
 
@@ -43,6 +49,8 @@ feature 'user can vote on posts', %Q{
 
   scenario 'user can downvote a post only once' do
     post = FactoryGirl.create(:post)
+    source = FactoryGirl.create(:source, id: 8)
+    sub = FactoryGirl.create(:subscription, user_id: post.user.id)
 
     visit "/auth/twitter"
 
